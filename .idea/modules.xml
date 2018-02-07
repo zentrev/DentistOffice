@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DentistOffice.iml" filepath="$PROJECT_DIR$/DentistOffice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestDriver/TestDriver.iml" filepath="$PROJECT_DIR$/TestDriver/TestDriver.iml" />
     </modules>
   </component>
 </project>
