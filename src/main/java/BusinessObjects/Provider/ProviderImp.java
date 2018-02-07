@@ -1,4 +1,4 @@
-package BusinessObjects;
+package BusinessObjects.Provider;
 
 public class ProviderImp {
 

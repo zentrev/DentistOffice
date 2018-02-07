@@ -1,4 +1,4 @@
 package BusinessObjects.Provider;
 
-public class Provider {
+public interface Provider {
 }
