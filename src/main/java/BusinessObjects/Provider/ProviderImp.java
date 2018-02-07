@@ -1,6 +1,6 @@
 package BusinessObjects.Provider;
 
-public class ProviderImp {
+public class ProviderImp implements Provider {
 
     private String firstName;
 
