@@ -2,7 +2,9 @@ package BusinessObjects.Patient;
 
 import BusinessObjects.Appointment.AppointmentList;
 
-public class PatientImp {
+import java.io.Serializable;
+
+public class PatientImp implements Patient, Serializable{
 
     private String name;
 
