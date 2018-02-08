@@ -1,4 +1,4 @@
 package BusinessObjects.User;
 
-public interface User {
+public class Administrator {
 }
