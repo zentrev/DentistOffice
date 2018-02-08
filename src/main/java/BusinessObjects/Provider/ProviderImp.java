@@ -20,7 +20,8 @@ public class ProviderImp implements Provider {
 
     }
 
-    public String getFirstName() {
+    public String getFirstName()
+    {
         return firstName;
     }
 
