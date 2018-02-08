@@ -4,6 +4,9 @@ import BusinessObjects.Appointment.AppointmentList;
 
 import java.io.Serializable;
 
+/**
+ * Class thta makes Patiens
+ */
 public class PatientImp implements Patient, Serializable{
 
     private String firstName;
@@ -26,8 +29,24 @@ public class PatientImp implements Patient, Serializable{
 
     private String inserance;
 
+    /**
+     * Default Constructor
+     */
     public PatientImp(){}
 
+    /**
+     * Overloaded Constructor that takes in firstName, lastName, id, emailAddress, groupId, MemberId, paymentCard, appointments, inserance
+     * @param firstName - sets the firstName
+     * @param lastName - sets the lastName
+     * @param id - sets the id
+     * @param phoneNumber - sets the phoneNumber
+     * @param emailAddress - sets the emailsAddress
+     * @param groupId - sets the groupId
+     * @param memberId - sets the numberId
+     * @param paymentCard - sets the paymentCard
+     * @param appointments - sets the appointments
+     * @param inserance- sets the appointment
+     */
     public PatientImp(String firstName, String lastName, int id, long phoneNumber, String emailAddress, int groupId,
                       int memberId, long paymentCard, AppointmentList appointments, String inserance){
         this.setFirstName(firstName);
@@ -43,6 +62,18 @@ public class PatientImp implements Patient, Serializable{
 
     }
 
+    /**
+     * Overloaded Constructor that takes in firstName, lastName, id, emailAddress, groupId, inserance
+     * @param firstName - sets the firstName
+     * @param lastName - sets the lastName
+     * @param id - sets the id
+     * @param phoneNumber - sets the phoneNumber
+     * @param emailAddress - sets the emailAddress
+     * @param groupId - sets the groupId
+     * @param memberId - sets the memberId
+     * @param appointments - sets the appointments
+     * @param inserance - sets the insertance
+     */
     public PatientImp(String firstName, String lastName, int id, long phoneNumber, String emailAddress, int groupId,
                       int memberId, AppointmentList appointments, String inserance){
 
@@ -58,6 +89,10 @@ public class PatientImp implements Patient, Serializable{
 
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFirstName() {
         return firstName;
     }
