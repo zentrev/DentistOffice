@@ -270,11 +270,10 @@ public class Controller {
         this.providerList = (ProviderList) in.readObject();
     }
 
-    //provider firstName, lastName, title
-    //patients firstName, lastName, insuranceCompany
-    //Procedure procedureCode
-    //Appointment time min-max, provider, patient, procedureCode
 
+    /**
+     * sorts userList by userName
+     */
     public void sortUsers(){
         Collections.sort(userList, new Comparator<UserImp>(){
             @Override
@@ -284,33 +283,99 @@ public class Controller {
         });
     }
 
+    /**
+     * sorts providerList by FirstName
+     */
     public void sortProviderFirstName(){
         Collections.sort(providerList, new Comparator<ProviderImp>(){
             @Override
             public int compare(ProviderImp o1, ProviderImp o2) {
                 return o1.getFirstName().compareTo(o2.getFirstName());
             }
-
         });
     }
 
+    /**
+     * sorts providerList by LastName
+     */
     public void sortProviderLastName(){
         Collections.sort(providerList, new Comparator<ProviderImp>(){
             @Override
             public int compare(ProviderImp o1, ProviderImp o2) {
                 return o1.getLastName().compareTo(o2.getLastName());
             }
-
         });
     }
 
+    /**
+     * sorts providerList by title
+     */
     public void sortProviderTitle(){
         Collections.sort(providerList, new Comparator<ProviderImp>(){
             @Override
             public int compare(ProviderImp o1, ProviderImp o2) {
                 return o1.getTitle().compareTo(o2.getTitle());
             }
+        });
+    }
 
+    /**
+     * sorts patientList by firstName
+     */
+    public void sortPatientsFirstName(){
+        Collections.sort(patientList, new Comparator<PatientImp>(){
+            @Override
+            public int compare(PatientImp o1, PatientImp o2) {
+                return o1.getFirstName().compareTo(o2.getFirstName());
+            }
+        });
+    }
+
+    /**
+     * sorts patientList by lastName
+     */
+    public void sortPatientsLastName(){
+         Collections.sort(patientList, new Comparator<PatientImp>(){
+            @Override
+            public int compare(PatientImp o1, PatientImp o2) {
+                return o1.getLastName().compareTo(o2.getLastName());
+            }
+        });
+    }
+
+    /**
+     * sorts patientList by Insurance
+     */
+    public void sortPatientsInsurence(){
+        Collections.sort(patientList, new Comparator<PatientImp>(){
+            @Override
+            public int compare(PatientImp o1, PatientImp o2) {
+                return o1.getInserance().compareTo(o2.getInserance());
+            }
+        });
+    }
+
+    /**
+     * sorts procedureList by procedureCode
+     */
+    public void sortProcedureCode(){
+        Collections.sort(procedureList, new Comparator<ProcedureImp>() {
+            @Override
+            public int compare(ProcedureImp o1, ProcedureImp o2) {
+                return o1.getProcedureCode().compareTo(o2.getProcedureCode());
+            }
+        });
+    }
+
+    /**
+     * sorts appointmentList by time
+     */
+    public void sortAppointmentTime(){
+        Collections.sort(appointmentList, new Comparator<AppointmentImp>() {
+            @Override
+            public int compare(AppointmentImp o1, AppointmentImp o2) {
+                return o1.getDate().compareTo(o2.getDate());
+            }
         });
     }
 
