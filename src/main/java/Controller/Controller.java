@@ -288,11 +288,37 @@ public class Controller {
         Collections.sort(providerList, new Comparator<ProviderImp>(){
             @Override
             public int compare(ProviderImp o1, ProviderImp o2) {
-                return o1.getName();
+                return o1.getFirstName().compareTo(o2.getFirstName());
             }
 
         });
     }
+
+    public void sortProviderLastName(){
+        Collections.sort(providerList, new Comparator<ProviderImp>(){
+            @Override
+            public int compare(ProviderImp o1, ProviderImp o2) {
+                return o1.getLastName().compareTo(o2.getLastName());
+            }
+
+        });
+    }
+
+    public void sortProviderTitle(){
+        Collections.sort(providerList, new Comparator<ProviderImp>(){
+            @Override
+            public int compare(ProviderImp o1, ProviderImp o2) {
+                return o1.getTitle().compareTo(o2.getTitle());
+            }
+
+        });
+    }
+
+    //Searches
+    //provider firstName, lastName, title
+    //patients firstName, lastName, insuranceCompany
+    //Procedure procedureCode
+    //Appointment time min-max, provider, patient, procedureCode
 
     //reports
 }
