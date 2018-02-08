@@ -174,7 +174,7 @@ public class Controller {
      * Loades all our List from our files
      * @return - Confirmation that the data loaded
      */
-    public String loadAll(){
+    public String loadAll() throws IOException,ClassNotFoundException{
         loadUsers();
         loadAppointments();
         loadPatients();
@@ -186,120 +186,80 @@ public class Controller {
     /**
      * Saves the userList to a file
      */
-    public void saveUsers(){
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(UserFileDest))){
-            out.writeObject(this.userList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void saveUsers() throws IOException{
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(UserFileDest));
+        out.writeObject(this.userList);
     }
 
     /**
      * Loads the userList form a file
      */
-    public void loadUsers()  {
-        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(UserFileDest))){
-            this.userList = (UserList) in.readObject();
-        }catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+    public void loadUsers() throws IOException,ClassNotFoundException{
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(UserFileDest));
+        this.userList = (UserList) in.readObject();
     }
 
     /**
      * Saves the appointmentList to a file
      */
-    public void saveAppointments(){
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(appointmentFileDest))){
-            out.writeObject(this.appointmentList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void saveAppointments() throws IOException{
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(appointmentFileDest));
+        out.writeObject(this.appointmentList);
     }
 
     /**
      * Loads the appointmentList from a file
      */
-    public void loadAppointments()  {
-        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(appointmentFileDest))){
-            this.appointmentList = (AppointmentList) in.readObject();
-        }catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+    public void loadAppointments() throws IOException,ClassNotFoundException{
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(appointmentFileDest));
+        this.appointmentList = (AppointmentList) in.readObject();
     }
 
     /**
      * Saves the patientList to a file
      */
-    public void savePatients(){
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(patientFileDest))){
-            out.writeObject(this.patientList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void savePatients() throws IOException{
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(patientFileDest));
+        out.writeObject(this.patientList);
     }
 
     /**
      * Loads the patientList form a file
      */
-    public void loadPatients()  {
-        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(patientFileDest))){
-            this.patientList = (PatientList) in.readObject();
-        }catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+    public void loadPatients() throws IOException,ClassNotFoundException{
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(patientFileDest));
+        this.patientList = (PatientList) in.readObject();
     }
 
     /**
      * Saves the procedureList to a file
      */
-    public void saveProcedures(){
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(procedureFileDest))){
-            out.writeObject(this.procedureList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void saveProcedures() throws IOException{
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(procedureFileDest));
+        out.writeObject(this.procedureList);
     }
 
     /**
      * Loads the procedureList from a file
      */
-    public void loadProcedures()  {
-        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(procedureFileDest))){
-            this.procedureList = (ProcedureList) in.readObject();
-        }catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+    public void loadProcedures() throws IOException,ClassNotFoundException{
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(procedureFileDest));
+        this.procedureList = (ProcedureList) in.readObject();
     }
 
     /**
      * Saves the providerList to a file
      */
-    public void saveProviders(){
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(providerFileDest))){
-            out.writeObject(this.providerList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void saveProviders() throws IOException{
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(providerFileDest));
+        out.writeObject(this.providerList);
     }
 
     /**
      * Loads the providerList from a file
      */
-    public void loadProviders()  {
-        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(providerFileDest))){
-            this.providerList = (ProviderList) in.readObject();
-        }catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+    public void loadProviders() throws IOException,ClassNotFoundException{
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(providerFileDest));
+        this.providerList = (ProviderList) in.readObject();
     }
 }
