@@ -3,10 +3,11 @@ package BusinessObjects.Appointment;
 import BusinessObjects.Patient.Patient;
 import BusinessObjects.Procedure.Procedure;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class AppointmentImp implements Appointment {
+public class AppointmentImp implements Appointment, Serializable {
 
     private Patient patient;
 

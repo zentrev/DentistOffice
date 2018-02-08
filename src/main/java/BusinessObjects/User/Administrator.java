@@ -1,5 +1,7 @@
 package BusinessObjects.User;
 
+import java.io.Serializable;
+
 public class Administrator extends UserImp {
 
     public Administrator(){}

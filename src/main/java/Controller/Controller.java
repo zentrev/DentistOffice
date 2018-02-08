@@ -21,11 +21,12 @@ public class Controller {
     private ProviderList providerList;
     private UserList userList;
 
-    public final static String UserFileDest = "resources/Users.sav";
-    public final static String appointmentFileDest = "resources/Appointment.sav";
-    public final static String patientFileDest = "Patient.sav";
-    public final static String procedureFileDest = "procedure.sav";
-    public final static String providerFileDest = "Provider.sav";
+
+    public final static String UserFileDest = "src/main/resources/Users.sav";
+    public final static String appointmentFileDest = "src/main/resources/Appointment.sav";
+    public final static String patientFileDest = "src/main/resources/Patient.sav";
+    public final static String procedureFileDest = "src/main/resources/procedure.sav";
+    public final static String providerFileDest = "src/main/resources/Provider.sav";
 
     /**
      * Default constructor for Controller

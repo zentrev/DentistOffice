@@ -2,7 +2,9 @@ package BusinessObjects.Procedure;
 
 import BusinessObjects.Provider.Provider;
 
-public class ProcedureImp implements Procedure {
+import java.io.Serializable;
+
+public class ProcedureImp implements Procedure, Serializable {
 
     private Provider provider;
 

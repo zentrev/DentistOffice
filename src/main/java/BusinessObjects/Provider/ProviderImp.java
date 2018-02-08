@@ -1,6 +1,8 @@
 package BusinessObjects.Provider;
 
-public class ProviderImp implements Provider {
+import java.io.Serializable;
+
+public class ProviderImp implements Provider, Serializable {
 
     private String name;
 

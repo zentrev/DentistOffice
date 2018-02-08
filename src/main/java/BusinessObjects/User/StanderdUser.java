@@ -1,5 +1,7 @@
 package BusinessObjects.User;
 
+import java.io.Serializable;
+
 public class StanderdUser extends UserImp {
 
     public StanderdUser(){}
