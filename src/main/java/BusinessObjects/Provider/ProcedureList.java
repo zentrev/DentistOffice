@@ -1,4 +1,6 @@
 package BusinessObjects.Provider;
 
-public class ProcedureList {
+import java.util.ArrayList;
+
+public class ProcedureList extends ArrayList<Provider>{
 }

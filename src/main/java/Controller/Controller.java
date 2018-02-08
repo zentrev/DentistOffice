@@ -4,8 +4,11 @@ import BusinessObjects.Appointment.Appointment;
 import BusinessObjects.Appointment.AppointmentImp;
 import BusinessObjects.Appointment.AppointmentList;
 import BusinessObjects.Patient.Patient;
+import BusinessObjects.Patient.PatientList;
 import BusinessObjects.Procedure.Procedure;
+import BusinessObjects.Procedure.ProcedureList;
 import BusinessObjects.Provider.Provider;
+import sun.security.jca.ProviderList;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -13,11 +16,11 @@ import java.util.Calendar;
 
 public class Controller {
 
-    AppointmentList appointmentList;
-    PatientList patientList;
-    ProcedureList procedureList;
-    ProviderList providerList;
-    UserList userList;
+    private AppointmentList appointmentList;
+    private PatientList patientList;
+    private ProcedureList procedureList;
+    private ProviderList providerList;
+    private UserList userList;
 
     public Controller(){
         appointmentList = new AppointmentList();
