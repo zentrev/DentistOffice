@@ -24,9 +24,15 @@ public class Controller {
     private ProviderList providerList;
     private UserList userList;
 
+    public final static String UserFileDest = "resources/Users.sav";
+
     public Controller(){
         appointmentList = new AppointmentList();
-
+        patientList = new PatientList();
+        procedureList = new ProcedureList();
+        providerList = new ProviderList();
+        userList = new UserList();
+        this.loadAll();
     }
 
     public void addAppointment(Appointment appointment){
@@ -69,27 +75,30 @@ public class Controller {
         userList.remove(user);
     }
 
+    public void saveAll(){
+        this.saveUsers();
+    }
 
+    public void loadAll(){
+        loadUsers();
+    }
 
+    public void saveUsers(){
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(UserFileDest))){
+            out.writeObject(this.userList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-
-//    private void saveHistory(){
-//        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(fileName))){
-//            out.writeObject(this.transactions);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    private void loadHistory()  {
-//        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))){
-//            this.transactions = (TransactionHistory) in.readObject();
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
+    public void loadUsers()  {
+        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(UserFileDest))){
+            this.userList = (UserList) in.readObject();
+        }catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

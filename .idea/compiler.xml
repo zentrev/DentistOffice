@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="DentistOffice" target="1.5" />
+      <module name="DentistOffice" target="1.7" />
       <module name="TestDriver" target="1.5" />
     </bytecodeTargetLevel>
   </component>

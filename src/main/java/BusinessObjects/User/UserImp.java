@@ -1,6 +1,8 @@
 package BusinessObjects.User;
 
-abstract public class UserImp implements User {
+import java.io.Serializable;
+
+abstract public class UserImp implements User, Serializable{
 
     private String userName;
 
