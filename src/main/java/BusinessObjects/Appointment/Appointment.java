@@ -7,9 +7,9 @@ public interface Appointment {
 
     public Paiient getPatient();
 
-    public ArrayList<Proceduer> getProceduers();
+    public ArrayList<Proceduer> getProcedures();
 
-    public void setProceduers(ArrayList<Proceduer> proceduers);
+    public void setProcedures(ArrayList<Proceduer> procedures);
 
     public void setPatient(Paiient patient);
 

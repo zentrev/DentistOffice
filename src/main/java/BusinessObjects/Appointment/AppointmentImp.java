@@ -13,7 +13,7 @@ public class AppointmentImp implements Appointment {
     private Calendar date;
 
 
-    private ArrayList<Proceduer> proceduers;
+    private ArrayList<Proceduer> procedures;
 
     private double charge;
 
@@ -21,7 +21,7 @@ public class AppointmentImp implements Appointment {
 
     public AppointmentImp(Patient patient, ArrayList<Procedure> procedures, Calendar date, double charge){
         this.setPatient(patient);
-        this.setProceduers(procedures);
+        this.setProcedures(procedures);
         this.setDate(date);
         this.setCharge(charge);
     }
@@ -30,12 +30,12 @@ public class AppointmentImp implements Appointment {
         return patient;
     }
 
-    public ArrayList<Proceduer> getProceduers() {
-        return proceduers;
+    public ArrayList<Proceduer> getProcedures() {
+        return procedures;
     }
 
-    public void setProceduers(ArrayList<Proceduer> proceduers) {
-        this.proceduers = proceduers;
+    public void setProcedures(ArrayList<Proceduer> procedures) {
+        this.procedures = procedures;
     }
 
     public void setPatient(Paiient patient) {
