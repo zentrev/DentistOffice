@@ -12,6 +12,7 @@ public class AppointmentImp implements Appointment {
 
     private Calendar date;
 
+
     private ArrayList<Proceduer> proceduers;
 
     private double charge;
