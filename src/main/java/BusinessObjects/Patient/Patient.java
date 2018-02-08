@@ -4,9 +4,13 @@ import BusinessObjects.Appointment.AppointmentList;
 
 public interface Patient {
 
-    public String getName();
+    public String getFirstName();
 
-    public void setName(String name);
+    public void setFirstName(String firstName);
+
+    public String getLastName();
+
+    public void setLastName(String lastName);
 
     public int getId();
 
@@ -35,4 +39,8 @@ public interface Patient {
     public AppointmentList getAppointments() ;
 
     public void setAppointments(AppointmentList appointments);
+
+    public String getInserance();
+
+    public void setInserance(String inserance);
 }

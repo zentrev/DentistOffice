@@ -6,7 +6,9 @@ import java.io.Serializable;
 
 public class PatientImp implements Patient, Serializable{
 
-    private String name;
+    private String firstName;
+
+    private String lastName;
 
     private int id;
 
@@ -22,11 +24,14 @@ public class PatientImp implements Patient, Serializable{
 
     private AppointmentList appointments;
 
+    private String inserance;
+
     public PatientImp(){}
 
-    public PatientImp(String name, int id, long phoneNumber, String emailAddress, int groupId,
-                      int memberId, long paymentCard, AppointmentList appointments){
-        this.setName(name);
+    public PatientImp(String firstName, String lastName, int id, long phoneNumber, String emailAddress, int groupId,
+                      int memberId, long paymentCard, AppointmentList appointments, String inserance){
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
         this.setId(id);
         this.setPhoneNumber(phoneNumber);
         this.setEmailAddress(emailAddress);
@@ -34,28 +39,39 @@ public class PatientImp implements Patient, Serializable{
         this.setMemberId(memberId);
         this.setPaymentCard(paymentCard);
         this.setAppointments(appointments);
+        this.setInserance(inserance);
 
     }
 
-    public PatientImp(String name, int id, long phoneNumber, String emailAddress, int groupId,
-                      int memberId, AppointmentList appointments){
+    public PatientImp(String firstName, String lastName, int id, long phoneNumber, String emailAddress, int groupId,
+                      int memberId, AppointmentList appointments, String inserance){
 
-        this.setName(name);
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
         this.setId(id);
         this.setPhoneNumber(phoneNumber);
         this.setEmailAddress(emailAddress);
         this.setGroupId(groupId);
         this.setMemberId(memberId);
         this.setAppointments(appointments);
+        this.setInserance(inserance);
 
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getId() {
@@ -112,5 +128,13 @@ public class PatientImp implements Patient, Serializable{
 
     public void setAppointments(AppointmentList appointments) {
         this.appointments = appointments;
+    }
+
+    public String getInserance() {
+        return inserance;
+    }
+
+    public void setInserance(String inserance) {
+        this.inserance = inserance;
     }
 }

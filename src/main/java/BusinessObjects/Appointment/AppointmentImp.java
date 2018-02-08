@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * Class that makes Appointments
+ */
 public class AppointmentImp implements Appointment, Serializable {
 
     private Patient patient;
@@ -17,8 +20,18 @@ public class AppointmentImp implements Appointment, Serializable {
 
     private double charge;
 
+    /**
+     * Default constructor
+     */
     public AppointmentImp(){}
 
+    /**
+     * Overloaded constructor
+     * @param patient
+     * @param procedures
+     * @param date
+     * @param charge
+     */
     public AppointmentImp(Patient patient, ArrayList<Procedure> procedures, Calendar date, double charge){
         this.setPatient(patient);
         this.setProceduers(procedures);
