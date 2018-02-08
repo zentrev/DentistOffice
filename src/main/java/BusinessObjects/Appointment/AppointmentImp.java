@@ -26,11 +26,11 @@ public class AppointmentImp implements Appointment, Serializable {
     public AppointmentImp(){}
 
     /**
-     * Overloaded constructor
-     * @param patient
-     * @param procedures
-     * @param date
-     * @param charge
+     * Overloaded constructor takes in a patient, Procedure, Date, charges
+     * @param patient - sets the patient
+     * @param procedures - sets the procedures
+     * @param date - sets date
+     * @param charge - sets charge
      */
     public AppointmentImp(Patient patient, ArrayList<Procedure> procedures, Calendar date, double charge){
         this.setPatient(patient);
@@ -39,35 +39,67 @@ public class AppointmentImp implements Appointment, Serializable {
         this.setCharge(charge);
     }
 
+    /**
+     * Gets the set patient
+     * @return - patient
+     */
     public Patient getPatient() {
         return patient;
     }
 
+    /**
+     * Gets the list of Procedueres
+     * @return - procedurs
+     */
     public ArrayList<Procedure> getProceduers() {
         return proceduers;
     }
 
+    /**
+     * Sets the list procedures
+     * @param proceduers - sets procedures
+     */
     public void setProceduers(ArrayList<Procedure> proceduers) {
         this.proceduers = proceduers;
     }
 
+    /**
+     * Sets the Patient
+     * @param patient - sets the patient
+     */
     public void setPatient(Patient patient) {
         this.patient = patient;
 
     }
 
+    /**
+     * Gets the set Date
+     * @return - the set date
+     */
     public Calendar getDate() {
         return date;
     }
 
+    /**
+     * Sets the date
+     * @param date - sets the date
+     */
     public void setDate(Calendar date) {
         this.date = date;
     }
 
+    /**
+     * Gets the set Charge
+     * @return - the set Charge
+     */
     public double getCharge() {
         return charge;
     }
 
+    /**
+     * Sets the charge
+     * @param charge - sets the charge
+     */
     public void setCharge(double charge) {
         this.charge = charge;
     }
