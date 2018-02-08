@@ -8,7 +8,7 @@ import BusinessObjects.Patient.PatientList;
 import BusinessObjects.Procedure.Procedure;
 import BusinessObjects.Procedure.ProcedureList;
 import BusinessObjects.Provider.Provider;
-import sun.security.jca.ProviderList;
+import BusinessObjects.Provider.ProviderList;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class Controller {
     private AppointmentList appointmentList;
     private PatientList patientList;
     private ProcedureList procedureList;
-    private ProviderList  providerList;
+    private ProviderList providerList;
     private UserList userList;
 
     public Controller(){
@@ -52,7 +52,7 @@ public class Controller {
     }
 
     public void addProvider(Provider provider){
-        providerList.add(Provider);
+        providerList.add(provider);
     }
 
     public void removeProvider(Provider provider){
