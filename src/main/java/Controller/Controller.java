@@ -1,16 +1,23 @@
 package Controller;
 
 import BusinessObjects.Appointment.Appointment;
+import BusinessObjects.Appointment.AppointmentImp;
 import BusinessObjects.Appointment.AppointmentList;
 import BusinessObjects.Patient.Patient;
+import BusinessObjects.Patient.PatientImp;
 import BusinessObjects.Patient.PatientList;
 import BusinessObjects.Procedure.Procedure;
+import BusinessObjects.Procedure.ProcedureImp;
 import BusinessObjects.Procedure.ProcedureList;
 import BusinessObjects.Provider.Provider;
+import BusinessObjects.Provider.ProviderImp;
 import BusinessObjects.Provider.ProviderList;
 import BusinessObjects.User.User;
+import BusinessObjects.User.UserImp;
 import BusinessObjects.User.UserList;
 import java.io.*;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class Controller {
@@ -31,7 +38,7 @@ public class Controller {
     /**
      * Default constructor for Controller
      */
-    public Controller(){
+    public Controller() throws IOException, ClassNotFoundException{
         appointmentList = new AppointmentList();
         patientList = new PatientList();
         procedureList = new ProcedureList();
@@ -44,7 +51,7 @@ public class Controller {
      * Adds an appointment to our appointmentList
      * @param appointment - appointment you would like to add
      */
-    public void addAppointment(Appointment appointment){
+    public void addAppointment(AppointmentImp appointment){
         appointmentList.add(appointment);
     }
 
@@ -52,7 +59,7 @@ public class Controller {
      * Removes an appointment from our appointmentList
      * @param appointment - appointment you would like to remove
      */
-    public void removeAppointment(Appointment appointment){
+    public void removeAppointment(AppointmentImp appointment){
         appointmentList.remove(appointment);
     }
 
@@ -60,7 +67,7 @@ public class Controller {
      * Adds a patient to our patientList
      * @param patient - patient you would like to add
      */
-    public void addPatient(Patient patient){
+    public void addPatient(PatientImp patient){
         patientList.add(patient);
     }
 
@@ -68,7 +75,7 @@ public class Controller {
      * Removes a patient from out patientList
      * @param patient - patient you would like to remove
      */
-    public void removePatient(Patient patient){
+    public void removePatient(PatientImp patient){
         patientList.remove(patient);
     }
 
@@ -76,7 +83,7 @@ public class Controller {
      * Adds a procedure to our procedureList
      * @param procedure - procedure you would like to add
      */
-    public void addProcedure(Procedure procedure){
+    public void addProcedure(ProcedureImp procedure){
         procedureList.add(procedure);
     }
 
@@ -84,7 +91,7 @@ public class Controller {
      * Removes a procedure from our procedureList
      * @param procedure - Procedure you would like to remove
      */
-    public void removeProcedure(Procedure procedure){
+    public void removeProcedure(ProcedureImp procedure){
         procedureList.remove(procedure);
     }
 
@@ -92,7 +99,7 @@ public class Controller {
      * Adds a provider to our providerList
      * @param provider - provider you would like to add
      */
-    public void addProvider(Provider provider){
+    public void addProvider(ProviderImp provider){
         providerList.add(provider);
     }
 
@@ -100,7 +107,7 @@ public class Controller {
      * Removes a provider from our procedureList
      * @param provider - procedure you would like to remove
      */
-    public void removeProvider(Provider provider){
+    public void removeProvider(ProviderImp provider){
         providerList.remove(provider);
     }
 
@@ -108,7 +115,7 @@ public class Controller {
      * Adds a user to our userList
      * @param user - user you would like to add
      */
-    public void addUser(User user){
+    public void addUser(UserImp user){
         userList.add(user);
     }
 
@@ -116,7 +123,7 @@ public class Controller {
      * Removes a user from our userList
      * @param user - user you would like to remove
      */
-    public void removeUser(User user){
+    public void removeUser(UserImp user){
         userList.remove(user);
     }
 
@@ -161,7 +168,7 @@ public class Controller {
      * Saves all our List to files
      * @return - Confirmation that the data saved
      */
-    public String saveAll(){
+    public String saveAll() throws IOException{
         saveUsers();
         saveAppointments();
         savePatients();
@@ -262,4 +269,30 @@ public class Controller {
         ObjectInputStream in = new ObjectInputStream(new FileInputStream(providerFileDest));
         this.providerList = (ProviderList) in.readObject();
     }
+
+    //provider firstName, lastName, title
+    //patients firstName, lastName, insuranceCompany
+    //Procedure procedureCode
+    //Appointment time min-max, provider, patient, procedureCode
+
+    public void sortUsers(){
+        Collections.sort(userList, new Comparator<UserImp>(){
+            @Override
+            public int compare(UserImp o1, UserImp o2) {
+                return o1.getUserName().compareTo(o2.getUserName());
+            }
+        });
+    }
+
+    public void sortProviderFirstName(){
+        Collections.sort(providerList, new Comparator<ProviderImp>(){
+            @Override
+            public int compare(ProviderImp o1, ProviderImp o2) {
+                return o1.getName();
+            }
+
+        });
+    }
+
+    //reports
 }

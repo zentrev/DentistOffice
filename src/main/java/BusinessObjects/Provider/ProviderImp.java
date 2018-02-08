@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 public class ProviderImp implements Provider, Serializable {
 
-    private String name;
+    private String firstName;
+
+    private String lastName;
 
     private String title;
 
@@ -12,19 +14,28 @@ public class ProviderImp implements Provider, Serializable {
 
     public ProviderImp() {}
 
-    public ProviderImp(String name, String title, int id){
-        this.setName(name);
+    public ProviderImp(String firstName, String lastName, String title, int id){
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
         this.setTitle(title);
         this.setId(id);
 
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName(){
+        return lastName;
+    }
+
+    public void setLastName(String lastName){
+        this.lastName = lastName;
     }
 
     public String getTitle() {

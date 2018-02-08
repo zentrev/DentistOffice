@@ -2,9 +2,13 @@ package BusinessObjects.Provider;
 
 public interface Provider {
 
-    public String getName();
+    public String getFirstName();
 
-    public void setName(String name);
+    public void setFirstName(String firstName);
+
+    public String getLastName();
+
+    public void setLastName(String lastName);
 
     public String getTitle();
 
