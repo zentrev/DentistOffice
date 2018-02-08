@@ -1,4 +1,6 @@
 package BusinessObjects.Appointment;
 
-public class AppointmentList {
+import java.util.ArrayList;
+
+public class AppointmentList extends ArrayList<Appointment>{
 }
