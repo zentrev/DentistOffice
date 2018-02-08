@@ -19,7 +19,7 @@ public class Controller {
     private AppointmentList appointmentList;
     private PatientList patientList;
     private ProcedureList procedureList;
-    private ProviderList providerList;
+    private ProviderList  providerList;
     private UserList userList;
 
     public Controller(){
@@ -52,7 +52,7 @@ public class Controller {
     }
 
     public void addProvider(Provider provider){
-        providerList.add(provider);
+        providerList.add(Provider);
     }
 
     public void removeProvider(Provider provider){

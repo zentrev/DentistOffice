@@ -1,4 +1,6 @@
 package BusinessObjects.Patient;
 
-public class PatientList {
+import java.util.ArrayList;
+
+public class PatientList extends ArrayList<Patient>{
 }
