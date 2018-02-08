@@ -8,12 +8,11 @@ import java.util.Calendar;
 
 public class AppointmentImp implements Appointment {
 
-    private Paiient patient;
+    private Patient patient;
 
     private Calendar date;
 
-
-    private ArrayList<Proceduer> procedures;
+    private ArrayList<Procedure> proceduers;
 
     private double charge;
 
@@ -21,24 +20,24 @@ public class AppointmentImp implements Appointment {
 
     public AppointmentImp(Patient patient, ArrayList<Procedure> procedures, Calendar date, double charge){
         this.setPatient(patient);
-        this.setProcedures(procedures);
+        this.setProceduers(procedures);
         this.setDate(date);
         this.setCharge(charge);
     }
 
-    public Paiient getPatient() {
+    public Patient getPatient() {
         return patient;
     }
 
-    public ArrayList<Proceduer> getProcedures() {
-        return procedures;
+    public ArrayList<Procedure> getProceduers() {
+        return proceduers;
     }
 
-    public void setProcedures(ArrayList<Proceduer> procedures) {
-        this.procedures = procedures;
+    public void setProceduers(ArrayList<Procedure> proceduers) {
+        this.proceduers = proceduers;
     }
 
-    public void setPatient(Paiient patient) {
+    public void setPatient(Patient patient) {
         this.patient = patient;
 
     }

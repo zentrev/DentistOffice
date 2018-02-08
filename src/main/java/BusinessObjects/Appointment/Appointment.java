@@ -1,17 +1,20 @@
 package BusinessObjects.Appointment;
 
+import BusinessObjects.Patient.Patient;
+import BusinessObjects.Procedure.Procedure;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public interface Appointment {
 
-    public Paiient getPatient();
+    public Patient getPatient();
 
-    public ArrayList<Proceduer> getProcedures();
+    public ArrayList<Procedure> getProceduers();
 
-    public void setProcedures(ArrayList<Proceduer> procedures);
+    public void setProceduers(ArrayList<Procedure> proceduers);
 
-    public void setPatient(Paiient patient);
+    public void setPatient(Patient patient);
 
     public Calendar getDate();
 

@@ -2,9 +2,7 @@ package BusinessObjects.Provider;
 
 public class ProviderImp implements Provider {
 
-    private String firstName;
-
-    private String lastName;
+    private String name;
 
     private String title;
 
@@ -12,29 +10,19 @@ public class ProviderImp implements Provider {
 
     public ProviderImp() {}
 
-    public ProviderImp(String firstName, String lastName, String title, int id){
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
+    public ProviderImp(String name, String title, int id){
+        this.setName(name);
         this.setTitle(title);
         this.setId(id);
 
     }
 
-    public String getFirstName()
-    {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTitle() {
@@ -55,11 +43,11 @@ public class ProviderImp implements Provider {
 
     @Override
     public String toString(){
-        return "firsts name; " + this.getFirstName() + "Last Name: " + this.getLastName() + "Title " + this.getTitle() + "Id: " + this.getId();
+        return   "Title " + this.getTitle() + "Id: " + this.getId();
     }
     @Override
     public boolean equals(Object obj){
         ProviderImp other = (ProviderImp)obj;
-        return this.getFirstName().equals(other.getFirstName());
+        return true;
     }
 }
