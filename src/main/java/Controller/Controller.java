@@ -9,6 +9,8 @@ import BusinessObjects.Procedure.Procedure;
 import BusinessObjects.Procedure.ProcedureList;
 import BusinessObjects.Provider.Provider;
 import BusinessObjects.Provider.ProviderList;
+import BusinessObjects.User.User;
+import BusinessObjects.User.UserList;
 
 import java.io.*;
 import java.util.ArrayList;

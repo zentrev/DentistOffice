@@ -1,4 +1,6 @@
 package BusinessObjects.User;
 
-public class UserList {
+import java.util.ArrayList;
+
+public class UserList extends ArrayList<User>{
 }
