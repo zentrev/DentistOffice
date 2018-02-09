@@ -63,4 +63,19 @@ public interface Procedure {
      * @param amountCharged - set the amountCharged
      */
     public void setAmountCharged(double amountCharged);
+
+    /**
+     * Overrides default toString
+     * @return - the Provider the procedureCode the ProcedureDescription the standard Charge and the AmountCharged.
+     */
+    @Override
+    public String toString();
+
+    /**
+     * Overrides default equals
+     * @param obj - takes in obj
+     * @return - the same procedurecode
+     */
+    @Override
+    public boolean equals(Object obj);
 }
