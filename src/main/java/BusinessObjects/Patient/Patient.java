@@ -116,11 +116,29 @@ public interface Patient {
      * gets the set Inserance
      * @return - gets the set Inserance
      */
-    public String getInserance();
+    public String getInsurance();
 
     /**
      * sets the Inserance
      * @param inserance - sets the Inserance
      */
-    public void setInserance(String inserance);
+    public void setInsurance(String inserance);
+
+    /**
+     * gets the payments made
+     * @return - the payments made
+     */
+    public double getPaymentsMade();
+
+    /**
+     * sets the payments made
+     * @param payments - set the payments made
+     */
+    public void setPaymentsMade(double payments);
+
+    /**
+     * adds a payment
+     * @param payments - adds a payment
+     */
+    public void addPayment(double payments);
 }

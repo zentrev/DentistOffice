@@ -346,7 +346,7 @@ public class Controller {
         Collections.sort(patientList, new Comparator<PatientImp>(){
             @Override
             public int compare(PatientImp o1, PatientImp o2) {
-                return o1.getInserance().compareTo(o2.getInserance());
+                return o1.getInsurance().compareTo(o2.getInsurance());
             }
         });
     }
@@ -448,7 +448,7 @@ public class Controller {
             }
             if(insurance != null && insurance != "") {
                 for (int i = 0; i < insurance.length(); i++) {
-                    if (insurance.toLowerCase().charAt(i) != patient.getInserance().toLowerCase().charAt(i)) {
+                    if (insurance.toLowerCase().charAt(i) != patient.getInsurance().toLowerCase().charAt(i)) {
                          insuranceProviders = false;
                     }
                 }
@@ -543,6 +543,8 @@ public class Controller {
 
     //reports
     //production total amount
+
+    public
 
 
 

@@ -29,6 +29,8 @@ public class PatientImp implements Patient, Serializable{
 
     private String inserance;
 
+    private double paymentsMade;
+
     /**
      * Default Constructor
      */
@@ -58,7 +60,7 @@ public class PatientImp implements Patient, Serializable{
         this.setMemberId(memberId);
         this.setPaymentCard(paymentCard);
         this.setAppointments(appointments);
-        this.setInserance(inserance);
+        this.setInsurance(inserance);
 
     }
 
@@ -85,7 +87,7 @@ public class PatientImp implements Patient, Serializable{
         this.setGroupId(groupId);
         this.setMemberId(memberId);
         this.setAppointments(appointments);
-        this.setInserance(inserance);
+        this.setInsurance(inserance);
 
     }
 
@@ -264,7 +266,7 @@ public class PatientImp implements Patient, Serializable{
      * gets the set inserance
      * @return - gets the set inserance
      */
-    public String getInserance() {
+    public String getInsurance() {
         return inserance;
     }
 
@@ -272,10 +274,31 @@ public class PatientImp implements Patient, Serializable{
      * sets the inserance
      * @param inserance - sets the inserance
      */
-    public void setInserance(String inserance) {
+    public void setInsurance(String inserance) {
         if(inserance == null){
             throw new IllegalArgumentException("cannot be null");
         }
         this.inserance = inserance;
+    }
+
+
+    public double getPaymentsMade() {
+        return paymentsMade;
+    }
+
+
+    public void setPaymentsMade(double payments) {
+        if(payments < 0){
+            throw new IllegalArgumentException("cannot be less than zero");
+        }
+        paymentsMade = payments;
+    }
+
+
+    public void addPayment(double payments) {
+        if(payments < 0){
+            throw new IllegalArgumentException("cannot be less than zero");
+        }
+        paymentsMade += payments;
     }
 }
