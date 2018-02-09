@@ -481,7 +481,11 @@ public class Controller {
         return production;
     }
 
-
+    /**
+     * sorts patents and balances by patents name
+     * @param sortFirstName - True if you want to sort by first name false to sort by last name
+     * @return - a hash map of patents and balances due
+     */
     public Map<PatientImp, Double> sortBalenceByName(boolean sortFirstName){
         Map<PatientImp, Double> map = getBalances();
         List<PatientImp> keys = new LinkedList<PatientImp>(map.keySet());
@@ -509,8 +513,12 @@ public class Controller {
         return sortedMap;
     }
 
+    /**
+     * returns a hash map with patients and there balances in no particular order
+     * @return - hash map of patents and balances
+     */
     public Map<PatientImp, Double> getBalances(){
-        Map<PatientImp, Double> balence = new HashMap<>();
+        Map<PatientImp, Double> balance = new HashMap<>();
         double procedureTotal = 0;
         double balanceDue;
 
@@ -521,9 +529,9 @@ public class Controller {
                 }
             }
             balanceDue = procedureTotal - patient.getPaymentsMade();
-            balence.put(patient, balanceDue);
+            balance.put(patient, balanceDue);
         }
-        return balence;
+        return balance;
     }
 
 
