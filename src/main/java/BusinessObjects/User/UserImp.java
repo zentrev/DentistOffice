@@ -109,4 +109,24 @@ abstract public class UserImp implements User, Serializable{
         }
         this.lastName = lastName;
     }
+
+    /**
+     * Overrides the default toString
+     * @return - The UserName the password and the name
+     */
+    @Override
+    public String toString(){
+        return   "The UserName: "+  this.getUserName()+ " The Password " + this.getPassword() + " The Name " + this.getFirstName() + " " + this.getLastName();
+    }
+
+    /**
+     * Overrides the default equals
+     * @param obj - obj
+     * @return the same password
+     */
+    @Override
+    public boolean equals(Object obj){
+        UserImp other = (UserImp)obj;
+        return this.getPassword() == other.getPassword();
+    }
 }

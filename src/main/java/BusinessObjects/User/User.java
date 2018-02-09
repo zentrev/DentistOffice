@@ -54,4 +54,19 @@ public interface User {
      * @param lastName - set lastName
      */
     public void setLastName(String lastName);
+
+    /**
+     * Overrides the default toString
+     * @return - The UserName the password and the name
+     */
+    @Override
+    public String toString();
+
+    /**
+     * Overrides the default equals
+     * @param obj - obj
+     * @return the same password
+     */
+    @Override
+    public boolean equals(Object obj);
 }
