@@ -22,13 +22,13 @@ public interface Appointment {
      *
      * @return - the list of Procedures
      */
-    public ProcedureList getProceduers();
+    public ProcedureList getProcedures();
 
     /**
      *
-     * @param proceduers - sets the list of Procedures
+     * @param procedures - sets the list of Procedures
      */
-    public void setProceduers(ProcedureList proceduers);
+    public void setProceduers(ProcedureList procedures);
 
     /**
      *

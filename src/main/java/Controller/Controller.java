@@ -521,7 +521,7 @@ public class Controller {
             }
             proced = true;
             provid = true;
-            for(ProcedureImp procedure : appointment.getProceduers()){
+            for(ProcedureImp procedure : appointment.getProcedures()){
                 if(!(procedure.getProcedureCode().equals(procedureCode))){
                     proced = true;
                 }
