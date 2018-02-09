@@ -478,10 +478,15 @@ public class Controller {
         return production;
     }
 
-//woorking here
-    public Map<PatientImp, Double> getPatientBalance(boolean sortLarge, String firstName, String lastName){
+//working here
+    public Map<PatientImp, Double> sortBalenceBySize(boolean sortLarge){
         return null;
     }
+
+    public Map<PatientImp, Double> sortBalenceByName(boolean sortFirstName){
+
+    }
+
 
 
 }
