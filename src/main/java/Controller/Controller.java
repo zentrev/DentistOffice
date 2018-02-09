@@ -1,15 +1,18 @@
 package Controller;
 
+import BusinessObjects.Appointment.Appointment;
 import BusinessObjects.Appointment.AppointmentImp;
 import BusinessObjects.Appointment.AppointmentList;
 import BusinessObjects.Patient.PatientImp;
 import BusinessObjects.Patient.PatientList;
+import BusinessObjects.Procedure.Procedure;
 import BusinessObjects.Procedure.ProcedureImp;
 import BusinessObjects.Procedure.ProcedureList;
 import BusinessObjects.Provider.ProviderImp;
 import BusinessObjects.Provider.ProviderList;
 import BusinessObjects.User.UserImp;
 import BusinessObjects.User.UserList;
+
 import java.io.*;
 import java.util.*;
 
@@ -478,13 +481,49 @@ public class Controller {
         return production;
     }
 
-//working here
-    public Map<PatientImp, Double> sortBalenceBySize(boolean sortLarge){
-        return null;
-    }
 
     public Map<PatientImp, Double> sortBalenceByName(boolean sortFirstName){
+        Map<PatientImp, Double> map = getBalances();
+        List<PatientImp> keys = new LinkedList<PatientImp>(map.keySet());
+        if(sortFirstName) {
+            Collections.sort(keys, new Comparator<PatientImp>() {
+                @Override
+                public int compare(PatientImp o1, PatientImp o2) {
+                    return o1.getFirstName().compareTo(o2.getFirstName());
+                }
 
+            });
+        }else{
+            Collections.sort(keys, new Comparator<PatientImp>() {
+                @Override
+                public int compare(PatientImp o1, PatientImp o2) {
+                    return o1.getLastName().compareTo(o2.getLastName());
+                }
+
+            });
+        }
+        Map<PatientImp,Double> sortedMap = new LinkedHashMap<PatientImp,Double>();
+        for(PatientImp key: keys){
+            sortedMap.put(key, map.get(key));
+        }
+        return sortedMap;
+    }
+
+    public Map<PatientImp, Double> getBalances(){
+        Map<PatientImp, Double> balence = new HashMap<>();
+        double procedureTotal = 0;
+        double balanceDue;
+
+        for(PatientImp patient : patientList){
+            for(Appointment appointment : patient.getAppointments()){
+                for(Procedure procedure : appointment.getProcedures()){
+                    procedureTotal += procedure.getAmountCharged();
+                }
+            }
+            balanceDue = procedureTotal - patient.getPaymentsMade();
+            balence.put(patient, balanceDue);
+        }
+        return balence;
     }
 
 
