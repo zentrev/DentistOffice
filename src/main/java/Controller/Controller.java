@@ -430,9 +430,6 @@ public class Controller {
     }
 
 
-    //reports
-    //production total amount, start time, end time, interval
-
     /**
      * makes a map of dates and produced income
      * @param start - starting search date(null for earliest possible date)
@@ -440,13 +437,13 @@ public class Controller {
      * @param interval - interval to view by day
      * @return - Map with calendar and Integer
      */
-    public Map<Calendar, Integer> getProduction(Calendar start, Calendar end, Interval interval){
-        Map<Calendar, Integer> production = new HashMap<>();
+    public Map<Calendar, Double> getProduction(Calendar start, Calendar end, Interval interval){
+        Map<Calendar, Double> production = new HashMap<>();
         AppointmentList allAppointments = new AppointmentList();
         allAppointments.sortAppointmentTime();
         Calendar counter = start;
         Calendar step = start;
-        int cash;
+        double cash;
         step.add(interval.getInterval(), 1);
         if(start == null){
             Calendar temp = Calendar.getInstance();
@@ -481,8 +478,10 @@ public class Controller {
         return production;
     }
 
-
-
+//woorking here
+    public Map<PatientImp, Double> getPatientBalance(boolean sortLarge, String firstName, String lastName){
+        return null;
+    }
 
 
 }
