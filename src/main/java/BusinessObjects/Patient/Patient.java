@@ -141,4 +141,18 @@ public interface Patient {
      * @param payments - adds a payment
      */
     public void addPayment(double payments);
+
+    /**
+     * Overrides default toString
+     * @return - the name the id the phone number the email the groupid the memberId the paymentcard the appointment and the insurance.
+     */
+    @Override
+    public String toString();
+    /**
+     * Overrides default equals
+     * @param obj - takes in obj
+     * @return - the same last name and id
+     */
+    @Override
+    public boolean equals(Object obj);
 }
