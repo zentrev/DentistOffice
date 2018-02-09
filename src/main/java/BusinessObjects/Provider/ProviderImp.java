@@ -1,5 +1,7 @@
 package BusinessObjects.Provider;
 
+import BusinessObjects.Procedure.ProcedureImp;
+
 import java.io.Serializable;
 
 /**
@@ -111,13 +113,23 @@ public class ProviderImp implements Provider, Serializable {
         this.id = id;
     }
 
+    /**
+     * Overrides the default toString
+     * @return - The title the name and the Id
+     */
     @Override
     public String toString(){
-        return   "Title " + this.getTitle() + "Id: " + this.getId();
+        return   "The Title:" + this.getTitle() + " The Name " + this.getFirstName() + " " + this.getLastName() + " The Id: " + this.getId();
     }
+
+    /**
+     * Overrides the default equals
+     * @param obj - obj
+     * @return the same title and id
+     */
     @Override
     public boolean equals(Object obj){
         ProviderImp other = (ProviderImp)obj;
-        return true;
+        return this.getTitle() == other.getTitle() && this.getId() == other.getId();
     }
 }
