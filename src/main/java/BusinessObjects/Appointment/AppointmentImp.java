@@ -110,7 +110,7 @@ public class AppointmentImp implements Appointment, Serializable {
      * @param charge - sets the charge
      */
     public void setCharge(double charge) {
-        if(charge > 0){
+        if(charge < 0){
             throw new IllegalArgumentException("Cannont be less then 0");
         }
         this.charge = charge;

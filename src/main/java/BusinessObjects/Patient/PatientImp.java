@@ -140,7 +140,7 @@ public class PatientImp implements Patient, Serializable{
      * @param id - sets the id
      */
     public void setId(int id) {
-        if(id > 0){
+        if(id < 0){
             throw new IllegalArgumentException("cannont be less then zero");
         }
         this.id = id;
@@ -159,7 +159,7 @@ public class PatientImp implements Patient, Serializable{
      * @param phoneNumber - sets the phone number
      */
     public void setPhoneNumber(long phoneNumber) {
-        if(phoneNumber > 0){
+        if(phoneNumber < 0){
             throw new IllegalArgumentException("Cannont be less then zero");
         }
         this.phoneNumber = phoneNumber;
@@ -197,7 +197,7 @@ public class PatientImp implements Patient, Serializable{
      * @param groupId - sets the GrouopId
      */
     public void setGroupId(int groupId) {
-        if(groupId > 0){
+        if(groupId < 0){
             throw new IllegalArgumentException("cannot be less then zero");
         }
         this.groupId = groupId;
@@ -216,7 +216,7 @@ public class PatientImp implements Patient, Serializable{
      * @param memberId - set the MemberId
      */
     public void setMemberId(int memberId) {
-        if(memberId > 0){
+        if(memberId < 0){
             throw new IllegalArgumentException("cannont be less then zero");
         }
         this.memberId = memberId;
@@ -235,7 +235,7 @@ public class PatientImp implements Patient, Serializable{
      * @param paymentCard - sets paymentCard
      */
     public void setPaymentCard(long paymentCard) {
-        if(paymentCard > 0 || paymentCard < 16){
+        if(paymentCard < 0 || paymentCard > 16){
             throw new IllegalArgumentException("Cannont be less then zero or more then 16");
         }
         this.paymentCard = paymentCard;

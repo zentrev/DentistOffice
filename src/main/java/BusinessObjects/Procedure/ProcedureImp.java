@@ -106,7 +106,7 @@ public class ProcedureImp implements Procedure, Serializable {
      * @param standardCharge - sets the standardCharge
      */
     public void setStandardCharge(double standardCharge) {
-        if(standardCharge > 0){
+        if(standardCharge < 0){
             throw new IllegalArgumentException("cannot be less then zero");
         }
         this.standardCharge = standardCharge;

@@ -48,6 +48,9 @@ public class ProviderImp implements Provider, Serializable {
      * @param firstName
      */
     public void setFirstName(String firstName) {
+        if(firstName == null){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.firstName = firstName;
     }
 
@@ -64,6 +67,9 @@ public class ProviderImp implements Provider, Serializable {
      * @param lastName - sets the lastName
      */
     public void setLastName(String lastName){
+        if(lastName == null){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.lastName = lastName;
     }
 
@@ -80,6 +86,9 @@ public class ProviderImp implements Provider, Serializable {
      * @param title - the set title
      */
     public void setTitle(String title) {
+        if(title == null){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.title = title;
     }
 
@@ -96,6 +105,9 @@ public class ProviderImp implements Provider, Serializable {
      * @param id - the set id
      */
     public void setId(int id) {
+        if(id < 0){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.id = id;
     }
 
