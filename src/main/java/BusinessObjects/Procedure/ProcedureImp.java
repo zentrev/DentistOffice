@@ -145,4 +145,24 @@ public class ProcedureImp implements Procedure, Serializable {
         }
         this.amountCharged = amountCharged;
     }
+    /**
+     * Overrides default toString
+     * @return - the Provider the procedureCode the ProcedureDescription the standard Charge and the AmountCharged.
+     */
+    @Override
+    public String toString(){
+        return "The Provider: " + this.getProvider() + " The ProcedureCode " + this.getProcedureCode() + " The ProcedureDescription: " + this.getProcedureDescription()
+                + " The StandardCharge: " + this.getStandardCharge() + " The Amount Charged " + this.getAmountCharged();
+    }
+
+    /**
+     * Overrides default equals
+     * @param obj - takes in obj
+     * @return - the same procedurecode
+     */
+    @Override
+    public boolean equals(Object obj){
+        ProcedureImp other = (ProcedureImp)obj;
+        return this.getProcedureCode() == other.procedureCode;
+    }
 }

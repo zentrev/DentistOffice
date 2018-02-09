@@ -48,4 +48,20 @@ public interface Appointment {
      */
     public void setDate(Calendar date);
 
+
+    /**
+     * Overrides default toString
+     * @return - the patient the proceduer and the date.
+     */
+    @Override
+    public String toString();
+
+    /**
+     * Overrides default equals
+     * @param obj - takes in obj
+     * @return - the same patient and the same procedure
+     */
+    @Override
+    public boolean equals(Object obj);
+
 }

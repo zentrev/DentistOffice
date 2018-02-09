@@ -54,16 +54,18 @@ public interface Provider {
     public void setId(int id);
 
     /**
-     * toString
-     * @return - the toString method
+     * Overrides the default toString
+     * @return - The title the name and the Id
      */
+    @Override
     public String toString();
 
     /**
-     * equals
+     * Overrides the default equals
      * @param obj - obj
-     * @return - true or false
+     * @return the same title and id
      */
+    @Override
     public boolean equals(Object obj);
 
 }

@@ -311,4 +311,26 @@ public class PatientImp implements Patient, Serializable{
         }
         paymentsMade += payments;
     }
+
+    /**
+     * Overrides default toString
+     * @return - the name the id the phone number the email the groupid the memberId the paymentcard the appointment and the insurance.
+     */
+    @Override
+    public String toString(){
+        return "The Name: " + this.getFirstName() + " " + this.getLastName() + " The ID: " + this.getId() + " The Phone number " + this.getPhoneNumber()
+                + " The Email: " + this.getEmailAddress() + " The GroupId: " + this.getGroupId() + " The Member Id: " + this.getMemberId()
+                + "The Payment card: " + this.getPaymentCard() + "The apointment: " + this.getAppointments() + " The Incurance: " + this.getInsurance();
+    }
+
+    /**
+     * Overrides default equals
+     * @param obj - takes in obj
+     * @return - the same last name and id
+     */
+    @Override
+    public boolean equals(Object obj){
+        PatientImp other = (PatientImp)obj;
+        return this.getLastName() == other.getLastName() && this.getId() == other.getId();
+    }
 }

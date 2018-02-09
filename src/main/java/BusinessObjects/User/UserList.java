@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * Class that adds a list
+ */
 public class UserList extends ArrayList<UserImp> implements Serializable{
 
     /**
