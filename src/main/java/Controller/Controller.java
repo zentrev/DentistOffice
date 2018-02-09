@@ -11,10 +11,7 @@ import BusinessObjects.Provider.ProviderList;
 import BusinessObjects.User.UserImp;
 import BusinessObjects.User.UserList;
 import java.io.*;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Map;
+import java.util.*;
 
 
 public class Controller {
@@ -436,8 +433,52 @@ public class Controller {
     //reports
     //production total amount, start time, end time, interval
 
-    public Map<Calendar, Integer> getProduction(Calendar start, Calendar end, Calendar interval){
-
+    /**
+     * makes a map of dates and produced income
+     * @param start - starting search date(null for earliest possible date)
+     * @param end - end search date (null for latest possible date)
+     * @param interval - interval to view by day
+     * @return - Map with calendar and Integer
+     */
+    public Map<Calendar, Integer> getProduction(Calendar start, Calendar end, Interval interval){
+        Map<Calendar, Integer> production = new HashMap<>();
+        AppointmentList allAppointments = new AppointmentList();
+        allAppointments.sortAppointmentTime();
+        Calendar counter = start;
+        Calendar step = start;
+        int cash;
+        step.add(interval.getInterval(), 1);
+        if(start == null){
+            Calendar temp = Calendar.getInstance();
+            temp.set(0,0,0,0,0,0);
+            start = temp;
+        }
+        if(end == null){
+            Calendar temp = Calendar.getInstance();
+            temp.set(9999,9999,9999,9999,9999,9999);
+            start = temp;
+        }
+        for(PatientImp patient : patientList){
+            for(AppointmentImp appointment : patient.getAppointments()){
+                if(appointment.getDate().before(end) && appointment.getDate().after(start)) {
+                    allAppointments.add(appointment);
+                }
+            }
+        }
+        while(counter.before(end)){
+            cash = 0;
+            for(AppointmentImp appointment : allAppointments){
+                if(appointment.getDate().after(counter) && appointment.getDate().before(step)){
+                    for(ProcedureImp procedure : appointment.getProcedures()){
+                        cash += procedure.getAmountCharged();
+                    }
+                }
+            }
+            production.put(counter, cash);
+            counter.add(interval.getInterval(), 1);
+            step.add(interval.getInterval(), 1);
+        }
+        return production;
     }
 
 
