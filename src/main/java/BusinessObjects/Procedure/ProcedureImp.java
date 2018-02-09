@@ -49,6 +49,9 @@ public class ProcedureImp implements Procedure, Serializable {
      * @param provider - set provider
      */
     public void setProvider(Provider provider) {
+        if(provider == null){
+            throw new IllegalArgumentException("Cannot be null");
+        }
         this.provider = provider;
     }
 
@@ -65,6 +68,9 @@ public class ProcedureImp implements Procedure, Serializable {
      * @param procedureCode - sets the procedureCode
      */
     public void setProcedureCode(String procedureCode) {
+        if(procedureCode == null){
+            throw new IllegalArgumentException("Cannot be null");
+        }
         this.procedureCode = procedureCode;
     }
 
@@ -81,6 +87,9 @@ public class ProcedureImp implements Procedure, Serializable {
      * @param procedureDescription - sets the procedureDescription
      */
     public void setProcedureDescription(String procedureDescription) {
+        if(procedureDescription == null){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.procedureDescription = procedureDescription;
     }
 
@@ -97,6 +106,9 @@ public class ProcedureImp implements Procedure, Serializable {
      * @param standardCharge - sets the standardCharge
      */
     public void setStandardCharge(double standardCharge) {
+        if(standardCharge > 0){
+            throw new IllegalArgumentException("cannot be less then zero");
+        }
         this.standardCharge = standardCharge;
     }
 }
