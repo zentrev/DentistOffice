@@ -95,5 +95,25 @@ public class AppointmentImp implements Appointment, Serializable {
         }
         this.date = date;
     }
+
+    /**
+     * Overrides default toString
+     * @return - the patient the proceduer and the date.
+     */
+    @Override
+    public String toString(){
+        return "The Patient: " + this.getPatient() + " The Proceduer: " + this.getProcedures() + " The Date: " + this.getDate();
+    }
+
+    /**
+     * Overrides default equals
+     * @param obj - takes in obj
+     * @return - the same patient and the same procedure
+     */
+    @Override
+    public boolean equals(Object obj){
+        AppointmentImp other = (AppointmentImp)obj;
+        return this.getPatient() == other.getPatient() && this.getProcedures() == other.getProcedures();
+    }
 }
 

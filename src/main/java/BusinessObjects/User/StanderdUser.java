@@ -2,6 +2,9 @@ package BusinessObjects.User;
 
 import java.io.Serializable;
 
+/**
+ * child class that extends UserImp
+ */
 public class StanderdUser extends UserImp {
 
     public StanderdUser(){}
