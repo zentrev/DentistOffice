@@ -14,6 +14,7 @@ import java.io.*;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Map;
 
 
 public class Controller {
@@ -268,115 +269,6 @@ public class Controller {
 
 
     /**
-     * sorts userList by userName
-     */
-    public void sortUsers(){
-        Collections.sort(userList, new Comparator<UserImp>(){
-            @Override
-            public int compare(UserImp o1, UserImp o2) {
-                return o1.getUserName().compareTo(o2.getUserName());
-            }
-        });
-    }
-
-    /**
-     * sorts providerList by FirstName
-     */
-    public void sortProviderFirstName(){
-        Collections.sort(providerList, new Comparator<ProviderImp>(){
-            @Override
-            public int compare(ProviderImp o1, ProviderImp o2) {
-                return o1.getFirstName().compareTo(o2.getFirstName());
-            }
-        });
-    }
-
-    /**
-     * sorts providerList by LastName
-     */
-    public void sortProviderLastName(){
-        Collections.sort(providerList, new Comparator<ProviderImp>(){
-            @Override
-            public int compare(ProviderImp o1, ProviderImp o2) {
-                return o1.getLastName().compareTo(o2.getLastName());
-            }
-        });
-    }
-
-    /**
-     * sorts providerList by title
-     */
-    public void sortProviderTitle(){
-        Collections.sort(providerList, new Comparator<ProviderImp>(){
-            @Override
-            public int compare(ProviderImp o1, ProviderImp o2) {
-                return o1.getTitle().compareTo(o2.getTitle());
-            }
-        });
-    }
-
-    /**
-     * sorts patientList by firstName
-     */
-    public void sortPatientsFirstName(){
-        Collections.sort(patientList, new Comparator<PatientImp>(){
-            @Override
-            public int compare(PatientImp o1, PatientImp o2) {
-                return o1.getFirstName().compareTo(o2.getFirstName());
-            }
-        });
-    }
-
-    /**
-     * sorts patientList by lastName
-     */
-    public void sortPatientsLastName(){
-         Collections.sort(patientList, new Comparator<PatientImp>(){
-            @Override
-            public int compare(PatientImp o1, PatientImp o2) {
-                return o1.getLastName().compareTo(o2.getLastName());
-            }
-        });
-    }
-
-    /**
-     * sorts patientList by Insurance
-     */
-    public void sortPatientsInsurence(){
-        Collections.sort(patientList, new Comparator<PatientImp>(){
-            @Override
-            public int compare(PatientImp o1, PatientImp o2) {
-                return o1.getInsurance().compareTo(o2.getInsurance());
-            }
-        });
-    }
-
-    /**
-     * sorts procedureList by procedureCode
-     */
-    public void sortProcedureCode(){
-        Collections.sort(procedureList, new Comparator<ProcedureImp>() {
-            @Override
-            public int compare(ProcedureImp o1, ProcedureImp o2) {
-                return o1.getProcedureCode().compareTo(o2.getProcedureCode());
-            }
-        });
-    }
-
-    /**
-     * sorts appointmentList by time
-     */
-    public void sortAppointmentTime(){
-        Collections.sort(appointmentList, new Comparator<AppointmentImp>() {
-            @Override
-            public int compare(AppointmentImp o1, AppointmentImp o2) {
-                return o1.getDate().compareTo(o2.getDate());
-            }
-        });
-    }
-
-
-    /**
      * Searches the providerList for providers with matching first chars, leave empty or null to get all for that field
      * @param firstName - First name you chose to search
      * @param lastName - Last name you chose to search
@@ -542,9 +434,13 @@ public class Controller {
 
 
     //reports
-    //production total amount
+    //production total amount, start time, end time, interval
 
-    public
+    public Map<Calendar, Integer> getProduction(Calendar start, Calendar end, Calendar interval){
+
+    }
+
+
 
 
 

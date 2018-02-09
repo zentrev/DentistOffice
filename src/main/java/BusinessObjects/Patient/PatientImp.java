@@ -281,12 +281,18 @@ public class PatientImp implements Patient, Serializable{
         this.inserance = inserance;
     }
 
-
+    /**
+     * gets the payments made
+     * @return - the payments made
+     */
     public double getPaymentsMade() {
         return paymentsMade;
     }
 
-
+    /**
+     * sets the payments made
+     * @param payments - set the payments made
+     */
     public void setPaymentsMade(double payments) {
         if(payments < 0){
             throw new IllegalArgumentException("cannot be less than zero");
@@ -295,6 +301,10 @@ public class PatientImp implements Patient, Serializable{
     }
 
 
+    /**
+     * adds a payment
+     * @param payments - adds a payment
+     */
     public void addPayment(double payments) {
         if(payments < 0){
             throw new IllegalArgumentException("cannot be less than zero");
