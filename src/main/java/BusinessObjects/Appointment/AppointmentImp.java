@@ -60,9 +60,6 @@ public class AppointmentImp implements Appointment, Serializable {
      * @param proceduers - sets procedures
      */
     public void setProceduers(ArrayList<Procedure> proceduers) {
-        if(proceduers == null){
-            throw new IllegalArgumentException("cannont be null");
-        }
         this.proceduers = proceduers;
     }
 
@@ -71,9 +68,6 @@ public class AppointmentImp implements Appointment, Serializable {
      * @param patient - sets the patient
      */
     public void setPatient(Patient patient) {
-        if(patient == null){
-            throw new IllegalArgumentException("Cannont be null");
-        }
         this.patient = patient;
 
     }
@@ -91,9 +85,6 @@ public class AppointmentImp implements Appointment, Serializable {
      * @param date - sets the date
      */
     public void setDate(Calendar date) {
-        if(date == null){
-            throw new IllegalArgumentException("Cannont be null");
-        }
         this.date = date;
     }
 
@@ -110,9 +101,6 @@ public class AppointmentImp implements Appointment, Serializable {
      * @param charge - sets the charge
      */
     public void setCharge(double charge) {
-        if(charge > 0){
-            throw new IllegalArgumentException("Cannont be less then 0");
-        }
         this.charge = charge;
     }
 }
