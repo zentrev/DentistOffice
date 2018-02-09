@@ -1,21 +1,17 @@
 package Controller;
 
-import BusinessObjects.Appointment.Appointment;
 import BusinessObjects.Appointment.AppointmentImp;
 import BusinessObjects.Appointment.AppointmentList;
-import BusinessObjects.Patient.Patient;
 import BusinessObjects.Patient.PatientImp;
 import BusinessObjects.Patient.PatientList;
-import BusinessObjects.Procedure.Procedure;
 import BusinessObjects.Procedure.ProcedureImp;
 import BusinessObjects.Procedure.ProcedureList;
-import BusinessObjects.Provider.Provider;
 import BusinessObjects.Provider.ProviderImp;
 import BusinessObjects.Provider.ProviderList;
-import BusinessObjects.User.User;
 import BusinessObjects.User.UserImp;
 import BusinessObjects.User.UserList;
 import java.io.*;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -44,7 +40,7 @@ public class Controller {
         procedureList = new ProcedureList();
         providerList = new ProviderList();
         userList = new UserList();
-        this.loadAll();
+       // this.loadAll();
     }
 
     /**
@@ -379,11 +375,171 @@ public class Controller {
         });
     }
 
-    //Searches
-    //provider firstName, lastName, title
-    //patients firstName, lastName, insuranceCompany
-    //Procedure procedureCode
-    //Appointment time min-max, provider, patient, procedureCode
+
+    /**
+     * Searches the providerList for providers with matching first chars, leave empty or null to get all for that field
+     * @param firstName - First name you chose to search
+     * @param lastName - Last name you chose to search
+     * @param title - title you chose to search for
+     * @return - a ProiderList with the Providers fitting your search
+     */
+    public ProviderList searchProviders(String firstName, String lastName, String title){
+        ProviderList providers = new ProviderList();
+        boolean firstNameProviders = true;
+        boolean lastNameProviders = true;
+        boolean titleProviders = true;
+
+        for(ProviderImp provide : providerList){
+            if(firstName != null && firstName != "") {
+                for (int i = 0; i < firstName.length(); i++) {
+                    if (firstName.toLowerCase().charAt(i) != provide.getFirstName().toLowerCase().charAt(i)) {
+                        firstNameProviders = false;
+                    }
+                }
+            }
+            if(lastName != null && lastName != "") {
+                for (int i = 0; i < lastName.length(); i++) {
+                    if (lastName.toLowerCase().charAt(i) != provide.getLastName().toLowerCase().charAt(i)) {
+                        lastNameProviders = false;
+                    }
+                }
+            }
+            if(title != null && title != "") {
+                for (int i = 0; i < title.length(); i++) {
+                    if (title.toLowerCase().charAt(i) != provide.getTitle().toLowerCase().charAt(i)) {
+                        titleProviders = false;
+                    }
+                }
+            }
+            if(firstNameProviders && lastNameProviders && titleProviders) {
+                providers.add(provide);
+            }
+        }
+        return providers;
+    }
+
+    /**
+     * Searches the PatientList for providers with matching first chars, leave empty or null to get all for that field
+     * @param firstName - First name you chose to search
+     * @param lastName - Last name you chose to search
+     * @param insurance - insurance you chose to search for
+     * @return - a PatientList with the Patients fitting your search
+     */
+    public PatientList searchPatients(String firstName, String lastName, String insurance){
+        PatientList patients = new PatientList();
+        boolean firstNameProviders = true;
+        boolean lastNameProviders = true;
+        boolean insuranceProviders = true;
+
+        for(PatientImp patient : patientList){
+            if(firstName != null && firstName != "") {
+                for (int i = 0; i < firstName.length(); i++) {
+                    if (firstName.toLowerCase().charAt(i) != patient.getFirstName().toLowerCase().charAt(i)) {
+                        firstNameProviders = false;
+                    }
+                }
+            }
+            if(lastName != null && lastName != "") {
+                for (int i = 0; i < lastName.length(); i++) {
+                    if (lastName.toLowerCase().charAt(i) != patient.getLastName().toLowerCase().charAt(i)) {
+                        lastNameProviders = false;
+                    }
+                }
+            }
+            if(insurance != null && insurance != "") {
+                for (int i = 0; i < insurance.length(); i++) {
+                    if (insurance.toLowerCase().charAt(i) != patient.getInserance().toLowerCase().charAt(i)) {
+                         insuranceProviders = false;
+                    }
+                }
+            }
+            if(firstNameProviders && lastNameProviders && insuranceProviders) {
+                patients.add(patient);
+            }
+        }
+        return patients;
+    }
+
+    /**
+     * Searches a procedureList for a given procedure code
+     * @param code - the procedure code your searching for
+     * @return - all procedures with the given search results
+     */
+    public ProcedureList searchProcedure(String code){
+        ProcedureList procedures = new ProcedureList();
+        for(ProcedureImp procedure : procedureList){
+            if(code != null && code != "") {
+                for (int i = 0; i < code.length(); i++) {
+                    if (code.toLowerCase().charAt(i) != procedure.getProcedureCode().toLowerCase().charAt(i)) {
+                        procedures.add(procedure);
+                    }
+                }
+            }
+        }
+        return procedures;
+    }
+
+
+    /**
+     * searches appointments based on filter
+     * @param minTime - earliest possible result
+     * @param maxTime - latest possible result
+     * @param providerFirstName - first name of the provider
+     * @param providerLastName - last name of the provider
+     * @param providerTitle - title of the provider
+     * @param procedureCode - procedure code of the procedure
+     * @param patientFirstName - first name of the patient
+     * @param patientLastName - last name of the patient
+     * @param patientInsurance - insurance of the patient
+     * @return - appointmentList of the filtered results
+     */
+    public AppointmentList searchAppointments(Calendar minTime, Calendar maxTime, String providerFirstName,
+                                              String providerLastName, String providerTitle, String procedureCode, String patientFirstName,
+                                              String patientLastName, String patientInsurance){
+        AppointmentList appointments = new AppointmentList();
+        boolean date = true;
+        boolean proced = true;
+        boolean provid = true;
+        boolean patie = true;
+
+        ProviderList providers = searchProviders(providerFirstName,providerLastName,providerTitle);
+        PatientList patients = searchPatients(patientFirstName,patientLastName,patientInsurance);
+
+        if(minTime == null){
+            minTime = Calendar.getInstance();
+            minTime.set(0,0,0,0,0,0);
+        }
+        if(maxTime == null){
+            maxTime = Calendar.getInstance();
+            maxTime.set(9999,9999,9999,9999,9999,9999);
+        }
+
+        for(AppointmentImp appointment : appointmentList){
+            date = true;
+            if(appointment.getDate().before(minTime) || appointment.getDate().after(maxTime)){
+                date = false;
+            }
+            proced = true;
+            provid = true;
+            for(ProcedureImp procedure : appointment.getProceduers()){
+                if(!(procedure.getProcedureCode().equals(procedureCode))){
+                    proced = true;
+                }
+                if(!(providers.contains(procedure.getProvider()))){
+                    provid = false;
+                }
+            }
+            patie = true;
+            if(!(patients.contains(appointment.getPatient()))){
+                patie = false;
+            }
+            if(date && proced && provid && patie){
+                appointments.add(appointment);
+            }
+        }
+        return appointments;
+    }
+
 
     //reports
 }

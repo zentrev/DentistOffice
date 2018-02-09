@@ -9,8 +9,8 @@ public class Factory {
         return new ProviderImp();
     }
 
-    public static Provider getPrviderInstanceInstance(String name, String title, int id){
-        return new ProviderImp(name, title, id);
+    public static Provider getPrviderInstanceInstance(String firstName,String lastName, String title, int id){
+        return new ProviderImp(firstName,lastName, title, id);
     }
 
 }

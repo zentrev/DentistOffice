@@ -2,6 +2,7 @@ package BusinessObjects.Appointment;
 
 import BusinessObjects.Patient.Patient;
 import BusinessObjects.Procedure.Procedure;
+import BusinessObjects.Procedure.ProcedureList;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,13 +22,13 @@ public interface Appointment {
      *
      * @return - the list of Procedures
      */
-    public ArrayList<Procedure> getProceduers();
+    public ProcedureList getProceduers();
 
     /**
      *
      * @param proceduers - sets the list of Procedures
      */
-    public void setProceduers(ArrayList<Procedure> proceduers);
+    public void setProceduers(ProcedureList proceduers);
 
     /**
      *
