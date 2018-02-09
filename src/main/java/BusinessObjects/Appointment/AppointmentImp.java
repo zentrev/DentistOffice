@@ -2,6 +2,7 @@ package BusinessObjects.Appointment;
 
 import BusinessObjects.Patient.Patient;
 import BusinessObjects.Procedure.Procedure;
+import BusinessObjects.Procedure.ProcedureList;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class AppointmentImp implements Appointment, Serializable {
 
     private Calendar date;
 
-    private ArrayList<Procedure> proceduers;
+    private ProcedureList proceduers;
 
     private double charge;
 
@@ -32,7 +33,7 @@ public class AppointmentImp implements Appointment, Serializable {
      * @param date - sets date
      * @param charge - sets charge
      */
-    public AppointmentImp(Patient patient, ArrayList<Procedure> procedures, Calendar date, double charge){
+    public AppointmentImp(Patient patient, ProcedureList procedures, Calendar date, double charge){
         this.setPatient(patient);
         this.setProceduers(procedures);
         this.setDate(date);
@@ -51,7 +52,7 @@ public class AppointmentImp implements Appointment, Serializable {
      * Gets the list of Procedueres
      * @return - procedurs
      */
-    public ArrayList<Procedure> getProceduers() {
+    public ProcedureList getProceduers() {
         return proceduers;
     }
 
@@ -59,7 +60,7 @@ public class AppointmentImp implements Appointment, Serializable {
      * Sets the list procedures
      * @param proceduers - sets procedures
      */
-    public void setProceduers(ArrayList<Procedure> proceduers) {
+    public void setProceduers(ProcedureList proceduers) {
         this.proceduers = proceduers;
     }
 
