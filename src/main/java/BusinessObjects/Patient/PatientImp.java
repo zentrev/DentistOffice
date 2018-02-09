@@ -102,6 +102,9 @@ public class PatientImp implements Patient, Serializable{
      * @param firstName - sets the first Name
      */
     public void setFirstName(String firstName) {
+        if(firstName == null){
+            throw new IllegalArgumentException("cannont be null");
+        }
         this.firstName = firstName;
     }
 
@@ -118,6 +121,9 @@ public class PatientImp implements Patient, Serializable{
      * @param lastName - sets the last name
      */
     public void setLastName(String lastName) {
+        if(lastName == null){
+            throw new IllegalArgumentException("cannont be null");
+        }
         this.lastName = lastName;
     }
 
@@ -134,6 +140,9 @@ public class PatientImp implements Patient, Serializable{
      * @param id - sets the id
      */
     public void setId(int id) {
+        if(id > 0){
+            throw new IllegalArgumentException("cannont be less then zero");
+        }
         this.id = id;
     }
 
@@ -150,6 +159,9 @@ public class PatientImp implements Patient, Serializable{
      * @param phoneNumber - sets the phone number
      */
     public void setPhoneNumber(long phoneNumber) {
+        if(phoneNumber > 0){
+            throw new IllegalArgumentException("Cannont be less then zero");
+        }
         this.phoneNumber = phoneNumber;
     }
 
@@ -166,6 +178,9 @@ public class PatientImp implements Patient, Serializable{
      * @param emailAddress - sets the Email
      */
     public void setEmailAddress(String emailAddress) {
+        if(emailAddress == null){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.emailAddress = emailAddress;
     }
 
@@ -182,6 +197,9 @@ public class PatientImp implements Patient, Serializable{
      * @param groupId - sets the GrouopId
      */
     public void setGroupId(int groupId) {
+        if(groupId > 0){
+            throw new IllegalArgumentException("cannot be less then zero");
+        }
         this.groupId = groupId;
     }
 
@@ -198,6 +216,9 @@ public class PatientImp implements Patient, Serializable{
      * @param memberId - set the MemberId
      */
     public void setMemberId(int memberId) {
+        if(memberId > 0){
+            throw new IllegalArgumentException("cannont be less then zero");
+        }
         this.memberId = memberId;
     }
 
@@ -214,6 +235,9 @@ public class PatientImp implements Patient, Serializable{
      * @param paymentCard - sets paymentCard
      */
     public void setPaymentCard(long paymentCard) {
+        if(paymentCard > 0 || paymentCard < 16){
+            throw new IllegalArgumentException("Cannont be less then zero or more then 16");
+        }
         this.paymentCard = paymentCard;
     }
 
@@ -230,6 +254,9 @@ public class PatientImp implements Patient, Serializable{
      * @param appointments - sets the Appointments
      */
     public void setAppointments(AppointmentList appointments) {
+        if(appointments == null){
+            throw new IllegalArgumentException("cannont be null");
+        }
         this.appointments = appointments;
     }
 
@@ -246,6 +273,9 @@ public class PatientImp implements Patient, Serializable{
      * @param inserance - sets the inserance
      */
     public void setInserance(String inserance) {
+        if(inserance == null){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.inserance = inserance;
     }
 }
