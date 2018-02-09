@@ -47,6 +47,9 @@ abstract public class UserImp implements User, Serializable{
      * @param userName - set userName
      */
     public void setUserName(String userName) {
+        if(userName == null){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.userName = userName;
     }
 
@@ -63,6 +66,9 @@ abstract public class UserImp implements User, Serializable{
      * @param password - sets the password
      */
     public void setPassword(String password) {
+        if(password == null){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.password = password;
     }
 
@@ -79,6 +85,9 @@ abstract public class UserImp implements User, Serializable{
      * @param firstName - set the firstName
      */
     public void setFirstName(String firstName) {
+        if(firstName == null){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.firstName = firstName;
     }
 
@@ -95,6 +104,9 @@ abstract public class UserImp implements User, Serializable{
      * @param lastName - sets the lastName
      */
     public void setLastName(String lastName) {
+        if(lastName == null){
+            throw new IllegalArgumentException("cannot be null");
+        }
         this.lastName = lastName;
     }
 }
