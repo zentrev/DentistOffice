@@ -542,4 +542,8 @@ public class Controller {
 
 
     //reports
+    //production total amount
+
+
+
 }

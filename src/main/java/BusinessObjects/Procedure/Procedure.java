@@ -51,4 +51,16 @@ public interface Procedure {
      * @param standardCharge - sets the StandardCharge
      */
     public void setStandardCharge(double standardCharge);
+
+    /**
+     * gets the amount charged
+     * @return
+     */
+    public double getAmountCharged();
+
+    /**
+     * sets the amount charged
+     * @param amountCharged - set the amountCharged
+     */
+    public void setAmountCharged(double amountCharged);
 }

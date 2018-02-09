@@ -44,19 +44,8 @@ public interface Appointment {
 
     /**
      *
-     * @param date - sets the date
+     * @param date - set the date
      */
     public void setDate(Calendar date);
 
-    /**
-     *
-     * @return - gets the set charge
-     */
-    public double getCharge();
-
-    /**
-     *
-     * @param charge - sets the charge
-     */
-    public void setCharge(double charge);
 }

@@ -19,7 +19,6 @@ public class AppointmentImp implements Appointment, Serializable {
 
     private ProcedureList procedures;
 
-    private double charge;
 
     /**
      * Default constructor
@@ -31,13 +30,11 @@ public class AppointmentImp implements Appointment, Serializable {
      * @param patient - sets the patient
      * @param procedures - sets the procedures
      * @param date - sets date
-     * @param charge - sets charge
      */
-    public AppointmentImp(Patient patient, ProcedureList procedures, Calendar date, double charge){
+    public AppointmentImp(Patient patient, ProcedureList procedures, Calendar date){
         this.setPatient(patient);
         this.setProceduers(procedures);
         this.setDate(date);
-        this.setCharge(charge);
     }
 
     /**
@@ -97,25 +94,6 @@ public class AppointmentImp implements Appointment, Serializable {
             throw new IllegalArgumentException("Cannont be null");
         }
         this.date = date;
-    }
-
-    /**
-     * Gets the set Charge
-     * @return - the set Charge
-     */
-    public double getCharge() {
-        return charge;
-    }
-
-    /**
-     * Sets the charge
-     * @param charge - sets the charge
-     */
-    public void setCharge(double charge) {
-        if(charge < 0){
-            throw new IllegalArgumentException("Cannont be less then 0");
-        }
-        this.charge = charge;
     }
 }
 

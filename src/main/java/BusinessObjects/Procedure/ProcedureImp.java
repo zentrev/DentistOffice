@@ -17,6 +17,8 @@ public class ProcedureImp implements Procedure, Serializable {
 
     private double standardCharge;
 
+    private double amountCharged;
+
     /**
      * Default Constructor
      */
@@ -28,12 +30,25 @@ public class ProcedureImp implements Procedure, Serializable {
      * @param procedureCode sets the procedureCode
      * @param procedureDescription sets the procedureDecription
      * @param standardCharge sets the standardCharge
+     * @param amountCharged sets the amount charged
      */
-    public ProcedureImp(Provider provider, String procedureCode, String procedureDescription, double standardCharge){
+    public ProcedureImp(Provider provider, String procedureCode, String procedureDescription, double standardCharge, double amountCharged){
         this.setProvider(provider);
         this.setProcedureCode(procedureCode);
         this.setProcedureDescription(procedureDescription);
         this.setStandardCharge(standardCharge);
+        this.setAmountCharged(amountCharged);
+    }
+
+    /**
+     * Overloaded Constructor that take in provider, procureCode, ProcedureDecription, standard
+     * @param provider sets the provider
+     * @param procedureCode sets the procedureCode
+     * @param procedureDescription sets the procedureDecription
+     * @param standardCharge sets the standardCharge
+     */
+    public ProcedureImp(Provider provider, String procedureCode, String procedureDescription, double standardCharge){
+        this(provider,procedureCode,procedureDescription,standardCharge,standardCharge);
     }
 
     /**
@@ -110,5 +125,24 @@ public class ProcedureImp implements Procedure, Serializable {
             throw new IllegalArgumentException("cannot be less then zero");
         }
         this.standardCharge = standardCharge;
+    }
+
+    /**
+     * gets the amountCharged
+     * @return - gets the amountCharged
+     */
+    public double getAmountCharged() {
+        return amountCharged;
+    }
+
+    /**
+     * sets the amountCharged
+     * @param amountCharged - set the amountCharged
+     */
+    public void setAmountCharged(double amountCharged) {
+        if(amountCharged < 0){
+            throw new IllegalArgumentException("cannot be less then zero");
+        }
+        this.amountCharged = amountCharged;
     }
 }
