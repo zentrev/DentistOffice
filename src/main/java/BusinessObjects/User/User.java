@@ -69,4 +69,6 @@ public interface User {
      */
     @Override
     public boolean equals(Object obj);
+
+    public boolean verifyLogin(String userName, String password);
 }

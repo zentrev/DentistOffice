@@ -10,7 +10,7 @@ import BusinessObjects.Procedure.ProcedureImp;
 import BusinessObjects.Procedure.ProcedureList;
 import BusinessObjects.Provider.ProviderImp;
 import BusinessObjects.Provider.ProviderList;
-import BusinessObjects.User.UserImp;
+import BusinessObjects.User.User;
 import BusinessObjects.User.UserList;
 
 import java.io.*;
@@ -41,7 +41,7 @@ public class Controller {
         procedureList = new ProcedureList();
         providerList = new ProviderList();
         userList = new UserList();
-       // this.loadAll();
+        this.loadAll();
     }
 
     /**
@@ -112,7 +112,7 @@ public class Controller {
      * Adds a user to our userList
      * @param user - user you would like to add
      */
-    public void addUser(UserImp user){
+    public void addUser(User user){
         userList.add(user);
     }
 
@@ -120,7 +120,7 @@ public class Controller {
      * Removes a user from our userList
      * @param user - user you would like to remove
      */
-    public void removeUser(UserImp user){
+    public void removeUser(User user){
         userList.remove(user);
     }
 
@@ -178,7 +178,7 @@ public class Controller {
      * Loades all our List from our files
      * @return - Confirmation that the data loaded
      */
-    public String loadAll() throws IOException,ClassNotFoundException{
+    public String loadAll() throws IOException, ClassNotFoundException {
         loadUsers();
         loadAppointments();
         loadPatients();
@@ -198,9 +198,18 @@ public class Controller {
     /**
      * Loads the userList form a file
      */
-    public void loadUsers() throws IOException,ClassNotFoundException{
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(UserFileDest));
-        this.userList = (UserList) in.readObject();
+    public void loadUsers() throws ClassNotFoundException{
+        ObjectInputStream in = null;
+        try {
+            in = new ObjectInputStream(new FileInputStream(UserFileDest));
+            this.userList = (UserList) in.readObject();
+        } catch (IOException e) {
+            try {
+                saveUsers();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -214,9 +223,17 @@ public class Controller {
     /**
      * Loads the appointmentList from a file
      */
-    public void loadAppointments() throws IOException,ClassNotFoundException{
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(appointmentFileDest));
-        this.appointmentList = (AppointmentList) in.readObject();
+    public void loadAppointments() throws ClassNotFoundException{
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(appointmentFileDest));
+            this.appointmentList = (AppointmentList) in.readObject();
+        } catch (IOException e) {
+            try {
+                saveAppointments();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -230,9 +247,17 @@ public class Controller {
     /**
      * Loads the patientList form a file
      */
-    public void loadPatients() throws IOException,ClassNotFoundException{
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(patientFileDest));
-        this.patientList = (PatientList) in.readObject();
+    public void loadPatients() throws ClassNotFoundException{
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(patientFileDest));
+            this.patientList = (PatientList) in.readObject();
+        } catch (IOException e) {
+            try {
+                savePatients();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -246,9 +271,17 @@ public class Controller {
     /**
      * Loads the procedureList from a file
      */
-    public void loadProcedures() throws IOException,ClassNotFoundException{
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(procedureFileDest));
-        this.procedureList = (ProcedureList) in.readObject();
+    public void loadProcedures() throws ClassNotFoundException{
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(procedureFileDest));
+            this.procedureList = (ProcedureList) in.readObject();
+        } catch (IOException e) {
+            try {
+                saveProcedures();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
     /**
@@ -262,9 +295,17 @@ public class Controller {
     /**
      * Loads the providerList from a file
      */
-    public void loadProviders() throws IOException,ClassNotFoundException{
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(providerFileDest));
-        this.providerList = (ProviderList) in.readObject();
+    public void loadProviders() throws ClassNotFoundException{
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(providerFileDest));
+            this.providerList = (ProviderList) in.readObject();
+        } catch (IOException e) {
+            try {
+                saveProviders();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
 

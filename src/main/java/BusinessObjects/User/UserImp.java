@@ -129,4 +129,14 @@ abstract public class UserImp implements User, Serializable{
         UserImp other = (UserImp)obj;
         return this.getPassword() == other.getPassword();
     }
+
+    /**
+     * checks user login information
+     * @param userName - username to verify against
+     * @param password - password to verify against
+     * @return - result of verification
+     */
+    public boolean verifyLogin(String userName, String password){
+        return this.getUserName().equals(userName) && this.getPassword().equals(password);
+    }
 }
