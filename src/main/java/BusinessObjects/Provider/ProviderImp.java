@@ -34,7 +34,6 @@ public class ProviderImp implements Provider, Serializable {
         this.setLastName(lastName);
         this.setTitle(title);
         this.setId(id);
-
     }
 
     /**

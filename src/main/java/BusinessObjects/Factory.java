@@ -13,7 +13,7 @@ public class Factory {
         return new ProviderImp();
     }
 
-    public static Provider getPrviderInstance(String firstName,String lastName, String title, int id){
+    public static Provider getProviderInstance(String firstName,String lastName, String title, int id){
         return new ProviderImp(firstName,lastName, title, id);
     }
 
@@ -28,6 +28,7 @@ public class Factory {
     public static User getAdministratorUserInstance(String userName,String password, String firstName, String lastName){
         return new Administrator(userName,password, firstName, lastName);
     }
+
 
 
 
