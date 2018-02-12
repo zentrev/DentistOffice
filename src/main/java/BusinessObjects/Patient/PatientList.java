@@ -8,15 +8,15 @@ import java.util.Comparator;
 /**
  * class of Patient list
  */
-public class PatientList extends ArrayList<PatientImp> implements Serializable{
+public class PatientList extends ArrayList<Patient> implements Serializable{
 
     /**
      * sorts patientList by firstName
      */
     public void sortPatientsFirstName(){
-        Collections.sort(this, new Comparator<PatientImp>(){
+        Collections.sort(this, new Comparator<Patient>(){
             @Override
-            public int compare(PatientImp o1, PatientImp o2) {
+            public int compare(Patient o1, Patient o2) {
                 return o1.getFirstName().compareTo(o2.getFirstName());
             }
         });
@@ -26,9 +26,9 @@ public class PatientList extends ArrayList<PatientImp> implements Serializable{
      * sorts patientList by lastName
      */
     public void sortPatientsLastName(){
-        Collections.sort(this, new Comparator<PatientImp>(){
+        Collections.sort(this, new Comparator<Patient>(){
             @Override
-            public int compare(PatientImp o1, PatientImp o2) {
+            public int compare(Patient o1, Patient o2) {
                 return o1.getLastName().compareTo(o2.getLastName());
             }
         });
@@ -38,9 +38,9 @@ public class PatientList extends ArrayList<PatientImp> implements Serializable{
      * sorts patientList by Insurance
      */
     public void sortPatientsInsurence(){
-        Collections.sort(this, new Comparator<PatientImp>(){
+        Collections.sort(this, new Comparator<Patient>(){
             @Override
-            public int compare(PatientImp o1, PatientImp o2) {
+            public int compare(Patient o1, Patient o2) {
                 return o1.getInsurance().compareTo(o2.getInsurance());
             }
         });

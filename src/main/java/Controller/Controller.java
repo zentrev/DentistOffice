@@ -1,15 +1,12 @@
 package Controller;
 
 import BusinessObjects.Appointment.Appointment;
-import BusinessObjects.Appointment.AppointmentImp;
 import BusinessObjects.Appointment.AppointmentList;
-import BusinessObjects.Patient.PatientImp;
+import BusinessObjects.Patient.Patient;
 import BusinessObjects.Patient.PatientList;
 import BusinessObjects.Procedure.Procedure;
-import BusinessObjects.Procedure.ProcedureImp;
 import BusinessObjects.Procedure.ProcedureList;
 import BusinessObjects.Provider.Provider;
-import BusinessObjects.Provider.ProviderImp;
 import BusinessObjects.Provider.ProviderList;
 import BusinessObjects.User.User;
 import BusinessObjects.User.UserList;
@@ -49,7 +46,7 @@ public class Controller {
      * Adds an appointment to our appointmentList
      * @param appointment - appointment you would like to add
      */
-    public void addAppointment(AppointmentImp appointment){
+    public void addAppointment(Appointment appointment){
         appointmentList.add(appointment);
     }
 
@@ -57,7 +54,7 @@ public class Controller {
      * Removes an appointment from our appointmentList
      * @param appointment - appointment you would like to remove
      */
-    public void removeAppointment(AppointmentImp appointment){
+    public void removeAppointment(Appointment appointment){
         appointmentList.remove(appointment);
     }
 
@@ -65,7 +62,7 @@ public class Controller {
      * Adds a patient to our patientList
      * @param patient - patient you would like to add
      */
-    public void addPatient(PatientImp patient){
+    public void addPatient(Patient patient){
         patientList.add(patient);
     }
 
@@ -73,7 +70,7 @@ public class Controller {
      * Removes a patient from out patientList
      * @param patient - patient you would like to remove
      */
-    public void removePatient(PatientImp patient){
+    public void removePatient(Patient patient){
         patientList.remove(patient);
     }
 
@@ -81,7 +78,7 @@ public class Controller {
      * Adds a procedure to our procedureList
      * @param procedure - procedure you would like to add
      */
-    public void addProcedure(ProcedureImp procedure){
+    public void addProcedure(Procedure procedure){
         procedureList.add(procedure);
     }
 
@@ -89,7 +86,7 @@ public class Controller {
      * Removes a procedure from our procedureList
      * @param procedure - Procedure you would like to remove
      */
-    public void removeProcedure(ProcedureImp procedure){
+    public void removeProcedure(Procedure procedure){
         procedureList.remove(procedure);
     }
 
@@ -97,7 +94,7 @@ public class Controller {
      * Adds a provider to our providerList
      * @param provider - provider you would like to add
      */
-    public void addProvider(ProviderImp provider){
+    public void addProvider(Provider provider){
         providerList.add(provider);
     }
 
@@ -105,7 +102,7 @@ public class Controller {
      * Removes a provider from our procedureList
      * @param provider - procedure you would like to remove
      */
-    public void removeProvider(ProviderImp provider){
+    public void removeProvider(Provider provider){
         providerList.remove(provider);
     }
 
@@ -365,7 +362,7 @@ public class Controller {
         boolean lastNameProviders = true;
         boolean insuranceProviders = true;
 
-        for(PatientImp patient : patientList){
+        for(Patient patient : patientList){
             if(firstName != null && firstName != "") {
                 for (int i = 0; i < firstName.length(); i++) {
                     if (firstName.toLowerCase().charAt(i) != patient.getFirstName().toLowerCase().charAt(i)) {
@@ -401,7 +398,7 @@ public class Controller {
      */
     public ProcedureList searchProcedure(String code){
         ProcedureList procedures = new ProcedureList();
-        for(ProcedureImp procedure : procedureList){
+        for(Procedure procedure : procedureList){
             if(code != null && code != "") {
                 for (int i = 0; i < code.length(); i++) {
                     if (code.toLowerCase().charAt(i) != procedure.getProcedureCode().toLowerCase().charAt(i)) {
@@ -448,14 +445,14 @@ public class Controller {
             maxTime.set(9999,9999,9999,9999,9999,9999);
         }
 
-        for(AppointmentImp appointment : appointmentList){
+        for(Appointment appointment : appointmentList){
             date = true;
             if(appointment.getDate().before(minTime) || appointment.getDate().after(maxTime)){
                 date = false;
             }
             proced = true;
             provid = true;
-            for(ProcedureImp procedure : appointment.getProcedures()){
+            for(Procedure procedure : appointment.getProcedures()){
                 if(!(procedure.getProcedureCode().equals(procedureCode))){
                     proced = true;
                 }
@@ -500,8 +497,8 @@ public class Controller {
             temp.set(9999,9999,9999,9999,9999,9999);
             start = temp;
         }
-        for(PatientImp patient : patientList){
-            for(AppointmentImp appointment : patient.getAppointments()){
+        for(Patient patient : patientList){
+            for(Appointment appointment : patient.getAppointments()){
                 if(appointment.getDate().before(end) && appointment.getDate().after(start)) {
                     allAppointments.add(appointment);
                 }
@@ -509,9 +506,9 @@ public class Controller {
         }
         while(counter.before(end)){
             cash = 0;
-            for(AppointmentImp appointment : allAppointments){
+            for(Appointment appointment : allAppointments){
                 if(appointment.getDate().after(counter) && appointment.getDate().before(step)){
-                    for(ProcedureImp procedure : appointment.getProcedures()){
+                    for(Procedure procedure : appointment.getProcedures()){
                         cash += procedure.getAmountCharged();
                     }
                 }
@@ -528,28 +525,28 @@ public class Controller {
      * @param sortFirstName - True if you want to sort by first name false to sort by last name
      * @return - a hash map of patents and balances due
      */
-    public Map<PatientImp, Double> sortBalenceByName(boolean sortFirstName){
-        Map<PatientImp, Double> map = getBalances();
-        List<PatientImp> keys = new LinkedList<PatientImp>(map.keySet());
+    public Map<Patient, Double> sortBalenceByName(boolean sortFirstName){
+        Map<Patient, Double> map = getBalances();
+        List<Patient> keys = new LinkedList<Patient>(map.keySet());
         if(sortFirstName) {
-            Collections.sort(keys, new Comparator<PatientImp>() {
+            Collections.sort(keys, new Comparator<Patient>() {
                 @Override
-                public int compare(PatientImp o1, PatientImp o2) {
+                public int compare(Patient o1, Patient o2) {
                     return o1.getFirstName().compareTo(o2.getFirstName());
                 }
 
             });
         }else{
-            Collections.sort(keys, new Comparator<PatientImp>() {
+            Collections.sort(keys, new Comparator<Patient>() {
                 @Override
-                public int compare(PatientImp o1, PatientImp o2) {
+                public int compare(Patient o1, Patient o2) {
                     return o1.getLastName().compareTo(o2.getLastName());
                 }
 
             });
         }
-        Map<PatientImp,Double> sortedMap = new LinkedHashMap<PatientImp,Double>();
-        for(PatientImp key: keys){
+        Map<Patient,Double> sortedMap = new LinkedHashMap<Patient,Double>();
+        for(Patient key: keys){
             sortedMap.put(key, map.get(key));
         }
         return sortedMap;
@@ -559,12 +556,12 @@ public class Controller {
      * returns a hash map with patients and there balances in no particular order
      * @return - hash map of patents and balances
      */
-    public Map<PatientImp, Double> getBalances(){
-        Map<PatientImp, Double> balance = new HashMap<>();
+    public Map<Patient, Double> getBalances(){
+        Map<Patient, Double> balance = new HashMap<>();
         double procedureTotal = 0;
         double balanceDue;
 
-        for(PatientImp patient : patientList){
+        for(Patient patient : patientList){
             for(Appointment appointment : patient.getAppointments()){
                 for(Procedure procedure : appointment.getProcedures()){
                     procedureTotal += procedure.getAmountCharged();

@@ -10,15 +10,15 @@ import java.util.Comparator;
 /**
  * List of Procedures
  */
-public class ProcedureList extends ArrayList<ProcedureImp> implements Serializable{
+public class ProcedureList extends ArrayList<Procedure> implements Serializable{
 
     /**
      * sorts procedureList by procedureCode
      */
     public void sortProcedureCode(){
-        Collections.sort(this, new Comparator<ProcedureImp>() {
+        Collections.sort(this, new Comparator<Procedure>() {
             @Override
-            public int compare(ProcedureImp o1, ProcedureImp o2) {
+            public int compare(Procedure o1, Procedure o2) {
                 return o1.getProcedureCode().compareTo(o2.getProcedureCode());
             }
         });

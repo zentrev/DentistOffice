@@ -1,11 +1,10 @@
 package BusinessObjects.Provider;
 
 import BusinessObjects.Procedure.Procedure;
+import BusinessObjects.User.User;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class ProviderList extends ArrayList<Provider> implements Serializable{
 
@@ -43,6 +42,15 @@ public class ProviderList extends ArrayList<Provider> implements Serializable{
                 return o1.getTitle().compareTo(o2.getTitle());
             }
         });
+    }
+
+    public Map<Integer, Provider> getProviderMap(){
+        sortProviderTitle();
+        Map<Integer,Provider> map = new HashMap<>();
+        for(int i = 0; i<this.size(); i++){
+            map.put(i, this.get(i));
+        }
+        return map;
     }
 
 }
