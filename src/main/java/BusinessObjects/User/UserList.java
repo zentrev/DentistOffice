@@ -20,6 +20,10 @@ public class UserList extends ArrayList<User> implements Serializable{
         });
     }
 
+    /**
+     * create a map out of the users
+     * @return - map of users
+     */
     public Map<Integer, User> getUserMap(){
         sortUsers();
         Map<Integer,User> map = new HashMap<>();

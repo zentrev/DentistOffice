@@ -19,6 +19,10 @@ public class Factory {
 
     public static User getStandardUserInstance(){return new StanderdUser();}
 
+    public static User getStandardUserInstanceInstance(String userName,String password, String firstName, String lastName){
+        return new Administrator(userName,password, firstName, lastName);
+    }
+
     public static User getAdministratorUserInstance(){return new Administrator();}
 
     public static User getAdministratorUserInstanceInstance(String userName,String password, String firstName, String lastName){
