@@ -8,6 +8,7 @@ import BusinessObjects.Patient.PatientList;
 import BusinessObjects.Procedure.Procedure;
 import BusinessObjects.Procedure.ProcedureImp;
 import BusinessObjects.Procedure.ProcedureList;
+import BusinessObjects.Provider.Provider;
 import BusinessObjects.Provider.ProviderImp;
 import BusinessObjects.Provider.ProviderList;
 import BusinessObjects.User.User;
@@ -322,7 +323,7 @@ public class Controller {
         boolean lastNameProviders = true;
         boolean titleProviders = true;
 
-        for(ProviderImp provide : providerList){
+        for(Provider provide : providerList){
             if(firstName != null && firstName != "") {
                 for (int i = 0; i < firstName.length(); i++) {
                     if (firstName.toLowerCase().charAt(i) != provide.getFirstName().toLowerCase().charAt(i)) {
