@@ -5,6 +5,7 @@ import BusinessObjects.Procedure.Procedure;
 import BusinessObjects.Procedure.ProcedureList;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -102,7 +103,9 @@ public class AppointmentImp implements Appointment, Serializable {
      */
     @Override
     public String toString(){
-        return "Patient: " + this.getPatient() + "\nProcedure: " + this.getProcedures() + "\nDate: " + this.getDate() + "\n----------------------------------------";
+        SimpleDateFormat format1 = new SimpleDateFormat("YYYY-MM-DD");
+        String date = format1.format(this.getDate());
+        return "Patient: " + this.getPatient() + "\nProcedure: " + this.getProcedures() + "\nDate: " + date + "\n----------------------------------------";
     }
 
     /**
