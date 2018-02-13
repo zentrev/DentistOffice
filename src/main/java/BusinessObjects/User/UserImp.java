@@ -116,7 +116,7 @@ abstract public class UserImp implements User, Serializable{
      */
     @Override
     public String toString(){
-        return   "The UserName: "+  this.getUserName()+ " The Password " + this.getPassword() + " The Name " + this.getFirstName() + " " + this.getLastName();
+        return   "UserName: "+  this.getUserName()+ "\nPassword: " + this.getPassword() + "\nName: " + this.getFirstName() + " " + this.getLastName()+"\n------------------------------";
     }
 
     /**

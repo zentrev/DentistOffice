@@ -151,8 +151,8 @@ public class ProcedureImp implements Procedure, Serializable {
      */
     @Override
     public String toString(){
-        return "The Provider: " + this.getProvider() + " The ProcedureCode " + this.getProcedureCode() + " The ProcedureDescription: " + this.getProcedureDescription()
-                + " The StandardCharge: " + this.getStandardCharge() + " The Amount Charged " + this.getAmountCharged();
+        return "Provider: " + this.getProvider() + "\nProcedureCode: " + this.getProcedureCode() + "\nProcedureDescription: " + this.getProcedureDescription()
+                + "\nStandardCharge: " + this.getStandardCharge() + "\nAmount Charged " + this.getAmountCharged()+"\n------------------------------";
     }
 
     /**

@@ -1,11 +1,10 @@
 package BusinessObjects.Procedure;
 
+import BusinessObjects.Patient.Patient;
 import BusinessObjects.Provider.Provider;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 /**
  * List of Procedures
@@ -22,6 +21,19 @@ public class ProcedureList extends ArrayList<Procedure> implements Serializable{
                 return o1.getProcedureCode().compareTo(o2.getProcedureCode());
             }
         });
+    }
+
+    /**
+     * gets a map of procedures
+     * @return - map of procedures
+     */
+    public Map<Integer, Procedure> getProcedurMap(){
+        sortProcedureCode();
+        Map<Integer,Procedure> map = new HashMap<>();
+        for(int i = 0; i<this.size(); i++){
+            map.put(i, this.get(i));
+        }
+        return map;
     }
 
 }

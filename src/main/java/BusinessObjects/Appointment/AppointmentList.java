@@ -1,9 +1,9 @@
 package BusinessObjects.Appointment;
 
+import BusinessObjects.Procedure.Procedure;
+
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 /**
  * Class of ArrayList
@@ -20,6 +20,15 @@ public class AppointmentList extends ArrayList<Appointment> implements Serializa
                 return o1.getDate().compareTo(o2.getDate());
             }
         });
+    }
+
+    public Map<Integer, Appointment> getAppointmentMap(){
+        sortAppointmentTime();
+        Map<Integer,Appointment> map = new HashMap<>();
+        for(int i = 0; i<this.size(); i++){
+            map.put(i, this.get(i));
+        }
+        return map;
     }
 
 }

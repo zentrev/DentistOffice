@@ -118,7 +118,7 @@ public class ProviderImp implements Provider, Serializable {
      */
     @Override
     public String toString(){
-        return   "The Title:" + this.getTitle() + " The Name " + this.getFirstName() + " " + this.getLastName() + " The Id: " + this.getId();
+        return   "Title: " + this.getTitle() + "\nName: " + this.getFirstName() + " " + this.getLastName() + "\nId: " + this.getId() + "\n------------------------------";
     }
 
     /**

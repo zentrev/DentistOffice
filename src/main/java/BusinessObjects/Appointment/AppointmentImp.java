@@ -102,7 +102,7 @@ public class AppointmentImp implements Appointment, Serializable {
      */
     @Override
     public String toString(){
-        return "The Patient: " + this.getPatient() + " The Proceduer: " + this.getProcedures() + " The Date: " + this.getDate();
+        return "Patient: " + this.getPatient() + "\nProcedure: " + this.getProcedures() + "\nDate: " + this.getDate() + "\n----------------------------------------";
     }
 
     /**

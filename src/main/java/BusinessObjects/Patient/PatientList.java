@@ -1,9 +1,10 @@
 package BusinessObjects.Patient;
 
+import BusinessObjects.Appointment.Appointment;
+import BusinessObjects.Provider.Provider;
+
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 /**
  * class of Patient list
@@ -44,6 +45,19 @@ public class PatientList extends ArrayList<Patient> implements Serializable{
                 return o1.getInsurance().compareTo(o2.getInsurance());
             }
         });
+    }
+
+    /**
+     * returns a map of patients
+     * @return - map of patients
+     */
+    public Map<Integer, Patient> getPatientMap(){
+        sortPatientsFirstName();
+        Map<Integer,Patient> map = new HashMap<>();
+        for(int i = 0; i<this.size(); i++){
+            map.put(i, this.get(i));
+        }
+        return map;
     }
 
 }

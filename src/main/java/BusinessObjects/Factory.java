@@ -29,7 +29,7 @@ public class Factory {
     public static User getStandardUserInstance(){return new StanderdUser();}
 
     public static User getStandardUserInstance(String userName,String password, String firstName, String lastName){
-        return new Administrator(userName,password, firstName, lastName);
+        return new StanderdUser(userName,password, firstName, lastName);
     }
 
     public static User getAdministratorUserInstance(){return new Administrator();}

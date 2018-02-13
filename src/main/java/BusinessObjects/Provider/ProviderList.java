@@ -44,6 +44,10 @@ public class ProviderList extends ArrayList<Provider> implements Serializable{
         });
     }
 
+    /**
+     * returns a provider map
+     * @return - map of providers
+     */
     public Map<Integer, Provider> getProviderMap(){
         sortProviderTitle();
         Map<Integer,Provider> map = new HashMap<>();

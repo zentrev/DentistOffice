@@ -318,9 +318,9 @@ public class PatientImp implements Patient, Serializable{
      */
     @Override
     public String toString(){
-        return "The Name: " + this.getFirstName() + " " + this.getLastName() + " The ID: " + this.getId() + " The Phone number " + this.getPhoneNumber()
-                + " The Email: " + this.getEmailAddress() + " The GroupId: " + this.getGroupId() + " The Member Id: " + this.getMemberId()
-                + "The Payment card: " + this.getPaymentCard() + "The apointment: " + this.getAppointments() + " The Incurance: " + this.getInsurance();
+        return "Name: " + this.getFirstName() + " " + this.getLastName() + "\nID: " + this.getId() + " \nPhone number " + this.getPhoneNumber()
+                + "\nEmail: " + this.getEmailAddress() + "\nGroupId: " + this.getGroupId() + "\nMember Id: " + this.getMemberId()
+                + "\nPayment card: " + this.getPaymentCard()  + "\nInsurance: " + this.getInsurance() + "\n------------------------------";
     }
 
     /**
